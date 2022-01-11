@@ -9,8 +9,8 @@
 
 <h3 id="demo">Demo</h3>
 
-<Modal triggerLabel="Super Simple" triggerClass="btn">
-	<h2>Hello World!</h2>
+<Modal triggerLabel="Super Simple Modal" triggerClass="btn">
+	<h2>Hello Super Simple Modal!</h2>
 	<p>
 		By default, the modal comes with it's own trigger so you don't have to worry about the opening
 		logic.
@@ -22,8 +22,8 @@
 	</p>
 </Modal>
 
-<Modal let:toggle dismissable={false} triggerLabel="Non-Dismissable" triggerClass="btn">
-	<h2>Hello World!</h2>
+<Modal let:toggle dismissable={false} triggerLabel="Non-Dismissable Modal" triggerClass="btn">
+	<h2>Hello Non-Dismissable Modal!</h2>
 	<p>
 		Can't close this one with <kbd>ESC</kbd>
 		and the top-right close button is missing, because we set the

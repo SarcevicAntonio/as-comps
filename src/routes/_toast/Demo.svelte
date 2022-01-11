@@ -10,7 +10,7 @@
 
 <label>
 	<span>Message</span>
-	<input type="text" bind:value={msg} />
+	<input type="text" bind:value={msg} data-test="toast-msg-input"/>
 </label>
 
 <label>
@@ -31,6 +31,7 @@
 	on:click={() => {
 		addToast(msg, type, delay);
 	}}
+	data-test="toast-create-btn"
 >
 	Add a toast
 </button>

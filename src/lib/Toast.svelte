@@ -13,7 +13,7 @@
 </script>
 
 <div class={toast.type} in:fly={{ y: -600, duration: 400 }} out:fade>
-	<span role="status">
+	<span role="status" data-test="toast-msg">
 		{@html toast.msg}
 	</span>
 	<button on:click={removeMyself} aria-label="Cancel Button">
