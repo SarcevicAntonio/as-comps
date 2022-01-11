@@ -14,7 +14,28 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+import './commands';
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+/// <reference types="cypress" />
+
+declare global {
+	// eslint-disable-next-line @typescript-eslint/no-namespace
+	namespace Cypress {
+		interface Chainable {
+			/**
+			 * Custom command to select DOM element by data-test attribute.
+			 * @example cy.getBySel('greeting')
+			 */
+			getBySel(value: string, args?): Chainable<JQuery<HTMLElement>>;
+
+			/**
+			 * Custom command to select DOM element by data-test* like attribute.
+			 * @example cy.getBySelLike('greeting')
+			 */
+			getBySelLike(value: string, args?): Chainable<JQuery<HTMLElement>>;
+		}
+	}
+}

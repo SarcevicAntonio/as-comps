@@ -10,7 +10,7 @@
 
 <label>
 	<span>Message</span>
-	<input type="text" bind:value={msg} data-test="toast-msg-input"/>
+	<input type="text" bind:value={msg} data-test="toast-msg-input" />
 </label>
 
 <label>

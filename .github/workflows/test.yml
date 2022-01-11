@@ -1,4 +1,4 @@
-name: Cypress Tests
+name: Lint & Tests
 on: [push]
 jobs:
   cypress-run:
@@ -11,6 +11,7 @@ jobs:
         with:
           version: 6
           run_install: true
+      - run: pnpm lint
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
