@@ -1,5 +1,5 @@
 {
-	"name": "as-template",
+	"name": "as-comps",
 	"version": "0.0.0",
 	"keywords": [
 		"Svelte",
@@ -8,7 +8,7 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/SarcevicAntonio/as-template.git"
+		"url": "git+https://github.com/SarcevicAntonio/as-comps.git"
 	},
 	"license": "MIT",
 	"author": {

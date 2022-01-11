@@ -6,7 +6,7 @@
 	export let includedTrigger = true;
 	export let dismissable = true;
 	export let triggerClass = '';
-	export let triggerLabel = "Open Modal";
+	export let triggerLabel = 'Open Modal';
 
 	function keydown(event: KeyboardEvent) {
 		if (event.key === 'Escape') dismiss();
@@ -14,6 +14,10 @@
 
 	function dismiss() {
 		if (dismissable) open = false;
+	}
+
+	function toggle() {
+		open = !open;
 	}
 </script>
 
@@ -40,7 +44,7 @@
 				</button>
 			{/if}
 			<div class="modal-content">
-				<slot />
+				<slot {toggle} />
 				{#if $$slots.modalActions}
 					<div class="modal-actions">
 						<slot name="modalActions" />

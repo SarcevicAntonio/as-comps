@@ -1,17 +1,13 @@
 <script>
-	import Modal from '$lib/Modal.svelte';
-
-	let deleteModalOpen = false;
+	import { addToast } from '$lib';
+	import { Modal } from '$lib';
 
 	function deleteEntry() {
-		deleteModalOpen = false;
-		alert('call delete function');
+		addToast('Deleted entry', 'warn');
 	}
-
-	let ndOpen = false;
 </script>
 
-<h2 id="demo">Demo</h2>
+<h3 id="demo">Demo</h3>
 
 <Modal triggerLabel="Super Simple" triggerClass="btn">
 	<h2>Hello World!</h2>
@@ -26,7 +22,7 @@
 	</p>
 </Modal>
 
-<Modal bind:open={ndOpen} dismissable={false} triggerLabel="Non-Dismissable" triggerClass="btn">
+<Modal let:toggle dismissable={false} triggerLabel="Non-Dismissable" triggerClass="btn">
 	<h2>Hello World!</h2>
 	<p>
 		Can't close this one with <kbd>ESC</kbd> and the top-right close button is missing, because we
@@ -37,26 +33,25 @@
 			>open</code
 		> prop to control the opening state.
 	</p>
-	<button
-		class="btn"
-		slot="modalActions"
-		on:click={() => {
-			ndOpen = false;
-		}}
-	>
-		Close Modal
-	</button>
+	<button class="btn" slot="modalActions" on:click={toggle}> Close Modal </button>
 </Modal>
 
 <br />
 
-<Modal bind:open={deleteModalOpen} triggerLabel="Delete Confirmation Dialog" triggerClass="btn">
+<Modal let:toggle triggerLabel="Delete Confirmation Dialog" triggerClass="btn">
 	<h2>Are you sure you want to delete the entry?</h2>
 	<p>This action can not be reversed.</p>
 
 	<svelte:fragment slot="modalActions">
-		<button class="btn" on:click={() => (deleteModalOpen = false)}> No </button>
-		<button class="btn" on:click={deleteEntry}>Yes </button>
+		<button class="btn" on:click={toggle}> No </button>
+		<button
+			class="btn"
+			on:click={() => {
+				deleteEntry();
+				toggle();
+			}}
+			>Yes
+		</button>
 	</svelte:fragment>
 </Modal>
 

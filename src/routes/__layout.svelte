@@ -1,6 +1,12 @@
+<script>
+  import {Toasts} from "$lib";
+</script>
+
 <main>
 	<slot />
 </main>
+
+<Toasts/>
 
 <style>
 	main {
