@@ -24,9 +24,9 @@ export function addToast(msg: string, type: Toast['type'] = 'info', removeAfter 
 			id,
 			msg,
 			type,
-			removeAfter
+			removeAfter,
 		},
-		...all
+		...all,
 	]);
 	setTimeout(() => {
 		removeToast(id);

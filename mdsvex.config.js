@@ -2,11 +2,11 @@ const config = {
 	extensions: ['.svelte.md', '.md', '.svx'],
 
 	smartypants: {
-		dashes: 'oldschool'
+		dashes: 'oldschool',
 	},
 
 	remarkPlugins: [],
-	rehypePlugins: []
+	rehypePlugins: [],
 };
 
 export default config;

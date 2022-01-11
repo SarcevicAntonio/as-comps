@@ -1,12 +1,12 @@
 <script>
-  import {Toasts} from "$lib";
+	import { Toasts } from '$lib';
 </script>
 
 <main>
 	<slot />
 </main>
 
-<Toasts/>
+<Toasts />
 
 <style>
 	main {

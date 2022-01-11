@@ -32,7 +32,7 @@
 		right: 50%;
 		transform: translate(50%, 0%);
 
-    margin: 0;
-    padding: 0;
-  }
+		margin: 0;
+		padding: 0;
+	}
 </style>

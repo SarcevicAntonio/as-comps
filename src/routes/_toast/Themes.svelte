@@ -60,7 +60,7 @@
 --as-toast-info-border-color: lime;
 --as-toast-warn-background: #561010;
 --as-toast-warn-border-color: lime;
-`
+`,
 	];
 </script>
 

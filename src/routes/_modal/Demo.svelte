@@ -25,15 +25,21 @@
 <Modal let:toggle dismissable={false} triggerLabel="Non-Dismissable" triggerClass="btn">
 	<h2>Hello World!</h2>
 	<p>
-		Can't close this one with <kbd>ESC</kbd> and the top-right close button is missing, because we
-		set the <code>dismissable</code> prop to <code>false</code>.
+		Can't close this one with <kbd>ESC</kbd>
+		and the top-right close button is missing, because we set the
+		<code>dismissable</code>
+		prop to
+		<code>false</code>
+		.
 	</p>
 	<p>
 		To close a non-dismissable Modal you have to provide your own close button like below. Bind the <code
-			>open</code
-		> prop to control the opening state.
+		>
+			open
+		</code>
+		prop to control the opening state.
 	</p>
-	<button class="btn" slot="modalActions" on:click={toggle}> Close Modal </button>
+	<button class="btn" slot="modalActions" on:click={toggle}>Close Modal</button>
 </Modal>
 
 <br />
@@ -43,14 +49,15 @@
 	<p>This action can not be reversed.</p>
 
 	<svelte:fragment slot="modalActions">
-		<button class="btn" on:click={toggle}> No </button>
+		<button class="btn" on:click={toggle}>No</button>
 		<button
 			class="btn"
 			on:click={() => {
 				deleteEntry();
 				toggle();
 			}}
-			>Yes
+		>
+			Yes
 		</button>
 	</svelte:fragment>
 </Modal>
