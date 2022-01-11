@@ -16,9 +16,9 @@
 		logic.
 	</p>
 	<p>
-		It also comes with a close button at the top-right and the ability to close it with <kbd
-			>ESC</kbd
-		> by default.
+		It also comes with a close button at the top-right and the ability to close it with
+		<kbd>ESC</kbd>
+		by default.
 	</p>
 </Modal>
 
