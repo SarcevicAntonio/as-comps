@@ -1,4 +1,4 @@
-<h3 id="docs">Docs</h3>
+### Docs
 
 To **show the toasts**, import and place the `<Toasts />` component
 inside your `src/routes/__layout.svelte` for SvelteKit
@@ -17,34 +17,31 @@ or `src/pages/_layout.svelte` for Routify, like this:
 This is used to display the toasts, so it needs to be rendered wherever you want your toasts
 visible.
 
-### Add Toasts
+#### `addToast(msg, type, removeDelay)`
 
 To create or **add a toast** import the `addToast` function from
 `"as-comps"` and call it with a message or any HTML.
 
-```js
-import { addToast } from 'as-comps';
-
-addToast("Just a simple 'info' toast", 'info');
-```
-
-**Set the toast type** with the second parameter. Currently, there is only two types:
+Set the **toast type** with the second parameter. Currently, there is only two types:
 'info' and 'warn'. By default, toasts will be of type 'info'.
 
-```js
-addToast("Just a simple 'info' toast", 'info');
-
-addToast("Just a simple 'warn' toast", 'warn');
-```
-
-**Set the amount of time** in milliseconds the toast will be displayed by setting the
+Set the **amount of time in milliseconds the toast will be displayed**s by setting the
 third parameter. By default, toasts will be displayed for 5000 milliseconds.
 
 ```js
+import { addToast } from 'as-comps';
+
+addToast("Just a simple 'info' toast");
+
+addToast("Just a simple 'info' toast", 'info');
+
+addToast("Just a simple 'warn' toast", 'warn');
+
 addToast('This toast will display for about 11,574 days.', undefined, 9001);
 ```
 
-### Customizing with CSS Custom Properties
+<!--
+#### Customizing with CSS Custom Properties
 
 The default toast item component can be replaced, but is also highly configurable using
 CSS Custom Properties. Overwrite the defaults, either by setting CSS Custom Properties in a global
@@ -60,10 +57,10 @@ Or you can use <a href="https://svelte.dev/docs#style_props" target="_blank">--s
 
 ```html
 <Toasts --as-toast-border-radius="999px" />
-<!-- gives toasts pill shape -->
+gives toasts pill shape
 ```
 
-#### Full list of CSS Custom Properties with defaults
+##### Full list of CSS Custom Properties with defaults
 
 <details>
   <summary>
@@ -108,7 +105,7 @@ Or you can use <a href="https://svelte.dev/docs#style_props" target="_blank">--s
 
 Check out some [theme ideas at the end of the page](#themes)!
 
-### Customizing by replacing default components
+#### Customizing by replacing default components
 
 The default toast item and cancel icon components can be replaced.
 Pass in your custom components to the `<Toasts />` component.
@@ -126,3 +123,5 @@ code:
 - <a href="https://github.com/SarcevicAntonio/as-toast/blob/main/src/lib/Cancel.svelte" target="_blank">
       Sourcecode for cancel icon component
     </a>
+
+-->

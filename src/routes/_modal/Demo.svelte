@@ -1,72 +1,69 @@
 <script>
-	import { addToast } from '$lib';
-	import { Modal } from '$lib';
+	import { addToast, Modal } from '$lib';
+	import Prism from 'prismjs';
 
 	function deleteEntry() {
 		addToast('Deleted entry', 'warn');
 	}
-</script>
 
-<h3 id="demo">Demo</h3>
+	let dismissable = true;
+	let triggerLabel = 'Delete Entry';
 
-<Modal triggerLabel="Super Simple Modal" triggerClass="btn">
-	<h2>Hello Super Simple Modal!</h2>
-	<p>
-		By default, the modal comes with it's own trigger so you don't have to worry about the opening
-		logic.
-	</p>
-	<p>
-		It also comes with a close button at the top-right and the ability to close it with
-		<kbd>ESC</kbd>
-		by default.
-	</p>
-</Modal>
-
-<Modal let:toggle dismissable={false} triggerLabel="Non-Dismissable Modal" triggerClass="btn">
-	<h2>Hello Non-Dismissable Modal!</h2>
-	<p>
-		Can't close this one with <kbd>ESC</kbd>
-		and the top-right close button is missing, because we set the
-		<code>dismissable</code>
-		prop to
-		<code>false</code>
-		.
-	</p>
-	<p>
-		To close a non-dismissable Modal you have to provide your own close button like below. Bind the <code
-		>
-			open
-		</code>
-		prop to control the opening state.
-	</p>
-	<button class="btn" slot="modalActions" on:click={toggle}>Close Modal</button>
-</Modal>
-
-<br />
-
-<Modal let:toggle triggerLabel="Delete Confirmation Dialog" triggerClass="btn">
+	$: code = `<Modal let:toggle${
+		dismissable ? '' : ' dismissable={false}'
+	}${triggerLabel? ` triggerLabel="${triggerLabel}"` : ''}>
 	<h2>Are you sure you want to delete the entry?</h2>
 	<p>This action can not be reversed.</p>
-
 	<svelte:fragment slot="modalActions">
 		<button class="btn" on:click={toggle}>No</button>
 		<button
 			class="btn"
-			on:click={() => {
+			on:click="{() => {
 				deleteEntry();
 				toggle();
-			}}
-		>
+			}}"
+			>
 			Yes
 		</button>
 	</svelte:fragment>
-</Modal>
+</Modal>`;
 
-<br />
+	$: codeHtml = Prism.highlight(code, Prism.languages.html, 'html');
+</script>
 
-<a
-	class="btn"
-	href="https://github.com/SarcevicAntonio/as-modal/blob/main/src/routes/_components/Demo.svelte"
->
-	View Demo Example Sourcecode
-</a>
+<h3 id="demo">Demo</h3>
+
+<section class="toybox">
+	<div class="demo">
+		<Modal let:toggle {dismissable} {triggerLabel} triggerClass="btn">
+			<h2>Are you sure you want to delete the entry?</h2>
+			<p>This action can not be reversed.</p>
+			<svelte:fragment slot="modalActions">
+				<button class="btn" on:click={toggle}>No</button>
+				<button
+					class="btn"
+					on:click={() => {
+						deleteEntry();
+						toggle();
+					}}
+				>
+					Yes
+				</button>
+			</svelte:fragment>
+		</Modal>
+	</div>
+	<pre class="language-html"><code class="language-html">{@html codeHtml}</code></pre>
+	<div class="controls">
+		<label>
+			<span>Dismissable</span>
+			<select bind:value={dismissable}>
+				<option value={true}>true</option>
+				<option value={false}>false</option>
+			</select>
+		</label>
+		<label>
+			<span>Trigger Label</span>
+			<input type="text" bind:value={triggerLabel} data-test="modal-trigger-label" />
+		</label>
+	</div>
+</section>

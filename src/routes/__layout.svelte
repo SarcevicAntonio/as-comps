@@ -1,16 +1,8 @@
 <script>
 	import { Toasts } from '$lib';
+	import "../global.css"
 </script>
 
-<main>
-	<slot />
-</main>
+<slot />
 
 <Toasts />
-
-<style>
-	main {
-		max-width: 75ch;
-		margin: auto;
-	}
-</style>
