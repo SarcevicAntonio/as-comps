@@ -28,12 +28,11 @@ You can also provide your own trigger if you pass `includedTrigger={false}` to t
 
 #### `triggerLabel` & `triggerClass`
 
-If you want to override the default trigger label or class you can pass in the props `triggerLabel`  and `triggerClass`.
+If you want to override the default trigger label or class you can pass in the props `triggerLabel` and `triggerClass`.
 
 ```html
 <Modal triggerLabel="my modal" triggerClass="btn">Hello Modal</Modal>
 ```
-
 
 #### `let:toggle` & `slot="modalActions"`
 
@@ -64,7 +63,7 @@ Above you can see the usage for `slot="modalActions"`. This can be used to displ
 By default the modal is dismissable and will close on <kbd>ESC</kbd>, by clicking outside or by clicking the `x`-Mark button. If you pass in `dismissable={false}` the modal is non-dismissable and won't close unless you call `let:toggle` or change the value of `bind:open`.
 
 ```html
-<Modal let:toggle dismissable={false}>
+<Modal let:toggle dismissable="{false}">
 	<h2>Non-Dismissable</h2>
 	<svelte:fragment slot="modalActions">
 		<button on:click="{toggle}">Close</button>

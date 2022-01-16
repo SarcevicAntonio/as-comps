@@ -9,9 +9,9 @@
 	let dismissable = true;
 	let triggerLabel = 'Delete Entry';
 
-	$: code = `<Modal let:toggle${
-		dismissable ? '' : ' dismissable={false}'
-	}${triggerLabel? ` triggerLabel="${triggerLabel}"` : ''}>
+	$: code = `<Modal let:toggle${dismissable ? '' : ' dismissable={false}'}${
+		triggerLabel ? ` triggerLabel="${triggerLabel}"` : ''
+	}>
 	<h2>Are you sure you want to delete the entry?</h2>
 	<p>This action can not be reversed.</p>
 	<svelte:fragment slot="modalActions">

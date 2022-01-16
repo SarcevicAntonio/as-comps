@@ -15,7 +15,8 @@ body {
 article {
 	margin: 10em 0;
 }
-article > h1, article > h2 {
+article > h1,
+article > h2 {
 	padding-top: 5em;
 }
 .btn {
@@ -25,11 +26,8 @@ article > h1, article > h2 {
 	background-color: white;
 	padding: 0.5em 1em;
 	cursor: pointer;
-	box-shadow:
-	0px 0.8px 0.4px rgba(0, 0, 0, 0.028),
-	0px 2.7px 1.3px rgba(0, 0, 0, 0.042),
-	0px 12px 6px rgba(0, 0, 0, 0.07)
- ;
+	box-shadow: 0px 0.8px 0.4px rgba(0, 0, 0, 0.028), 0px 2.7px 1.3px rgba(0, 0, 0, 0.042),
+		0px 12px 6px rgba(0, 0, 0, 0.07);
 	transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
 	font: inherit;
 }
@@ -50,7 +48,8 @@ label {
 	flex-direction: column;
 	max-width: 420px;
 }
-label input, label select {
+label input,
+label select {
 	margin-top: 0.25em;
 }
 .btn:hover {
@@ -92,7 +91,6 @@ kbd {
 }
 .toybox pre {
 	border-radius: 0;
-
 }
 .toybox .controls {
 	display: flex;

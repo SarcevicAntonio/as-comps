@@ -1,6 +1,6 @@
 <script>
 	import { Toasts } from '$lib';
-	import "../global.css"
+	import '../global.css';
 </script>
 
 <slot />
