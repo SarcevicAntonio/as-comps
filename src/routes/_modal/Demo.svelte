@@ -36,7 +36,7 @@
 <section class="toybox">
 	<div class="demo">
 		<Modal let:toggle {dismissable} {triggerLabel} triggerClass="btn">
-			<h2>Are you sure you want to delete the entry?</h2>
+			<h2 data-test="modal-content">Are you sure you want to delete the entry?</h2>
 			<p>This action can not be reversed.</p>
 			<svelte:fragment slot="modalActions">
 				<button class="btn" on:click={toggle}>No</button>
@@ -56,7 +56,7 @@
 	<div class="controls">
 		<label>
 			<span>Dismissable</span>
-			<select bind:value={dismissable}>
+			<select bind:value={dismissable} data-test="modal-dismissable-select">
 				<option value={true}>true</option>
 				<option value={false}>false</option>
 			</select>
