@@ -6,12 +6,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
       - name: install pnpm
         uses: pnpm/action-setup@v2.0.1
         with:
           version: 6
           run_install: true
+
       - run: pnpm lint
+      
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
