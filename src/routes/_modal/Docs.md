@@ -58,12 +58,12 @@ When creating a confirm modal, you need to toggle the opening state at different
 
 Above you can see the usage for `slot="modalActions"`. This can be used to display options / buttons of a modal dialog in a row.
 
-#### `dismissable`
+#### `mandatory`
 
-By default the modal is dismissable and will close on <kbd>ESC</kbd>, by clicking outside or by clicking the `x`-Mark button. If you pass in `dismissable={false}` the modal is non-dismissable and won't close unless you call `let:toggle` or change the value of `bind:open`.
+By default the modal is dismissable (not mandatory) and will close on <kbd>ESC</kbd>, by clicking outside or by clicking the `x`-Mark button. If you pass in the `mandatory` prop the modal is non-dismissable and won't close unless you call `let:toggle` or change the value of `bind:open`.
 
 ```html
-<Modal let:toggle dismissable="{false}">
+<Modal let:toggle mandatory>
 	<h2>Non-Dismissable</h2>
 	<svelte:fragment slot="modalActions">
 		<button on:click="{toggle}">Close</button>

@@ -6,10 +6,11 @@
 		addToast('Deleted entry', 'warn');
 	}
 
-	let dismissable = true;
+	let mandatory = false;
 	let triggerLabel = 'Delete Entry';
+	$: dirTriggerLabel = triggerLabel || 'Open Modal';
 
-	$: code = `<Modal let:toggle${dismissable ? '' : ' dismissable={false}'}${
+	$: code = `<Modal let:toggle${mandatory ? ' mandatory' : ''}${
 		triggerLabel ? ` triggerLabel="${triggerLabel}"` : ''
 	}>
 	<h2>Are you sure you want to delete the entry?</h2>
@@ -35,7 +36,7 @@
 
 <section class="toybox">
 	<div class="demo">
-		<Modal let:toggle {dismissable} {triggerLabel} triggerClass="btn">
+		<Modal let:toggle {mandatory} triggerLabel={dirTriggerLabel} triggerClass="btn">
 			<h2 data-test="modal-content">Are you sure you want to delete the entry?</h2>
 			<p>This action can not be reversed.</p>
 			<svelte:fragment slot="modalActions">
@@ -55,8 +56,8 @@
 	<pre class="language-html"><code class="language-html">{@html codeHtml}</code></pre>
 	<div class="controls">
 		<label>
-			<span>Dismissable</span>
-			<select bind:value={dismissable} data-test="modal-dismissable-select">
+			<span>mandatory</span>
+			<select bind:value={mandatory} data-test="modal-mandatory-select">
 				<option value={true}>true</option>
 				<option value={false}>false</option>
 			</select>

@@ -4,7 +4,7 @@
 
 	export let open = false;
 	export let includedTrigger = true;
-	export let dismissable = true;
+	export let mandatory = false;
 	export let triggerClass = '';
 	export let triggerLabel = 'Open Modal';
 
@@ -13,7 +13,7 @@
 	}
 
 	function dismiss() {
-		if (dismissable) open = false;
+		if (!mandatory) open = false;
 	}
 
 	function toggle() {
@@ -37,13 +37,13 @@
 {#if open}
 	<div class="container">
 		<div class="overlay" transition:fade on:click={dismiss} />
-		<div class="modal" role="dialog" in:scale out:fade>
-			{#if dismissable}
+		<div class="modal" role="dialog" aria-labelledby="modal-content" in:scale out:fade>
+			{#if !mandatory}
 				<button class="close-btn" aria-label="Close Modal or Dialog" on:click={dismiss}>
 					<Cancel />
 				</button>
 			{/if}
-			<div class="modal-content">
+			<div id="modal-content">
 				<slot {toggle} />
 				{#if $$slots.modalActions}
 					<div class="modal-actions">
@@ -79,10 +79,10 @@
 		);
 		border-radius: var(--as-modal-border-radius, 0.25em);
 	}
-	:global(.modal-content > *:first-child) {
+	:global(#modal-content > *:first-child) {
 		margin-top: 0;
 	}
-	:global(.modal-content > *:last-child, .modal-content > *:last-child, .modal-content
+	:global(#modal-content > *:last-child, #modal-content > *:last-child, #modal-content
 			> *:last-child
 			*) {
 		margin-bottom: 0;
