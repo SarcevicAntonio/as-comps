@@ -1,12 +1,12 @@
 <script lang="ts">
-	import { addToast } from '$lib';
+	import { notification } from '$lib';
 	import Prism from 'prismjs';
 
-	let msg = 'Just a toast';
+	let msg = 'Just a notification';
 	let type: 'info' | 'warn' = 'info';
 	let delay = 5000;
 
-	$: code = `addToast("${msg}"${type ? `, "${type}"` : delay ? `, undefined` : ''}${
+	$: code = `notification("${msg}"${type ? `, "${type}"` : delay ? `, undefined` : ''}${
 		delay ? `, ${delay}` : ''
 	});`;
 
@@ -20,18 +20,18 @@
 		<button
 			class="btn"
 			on:click={() => {
-				addToast(msg, type, delay);
+				notification(msg, type, delay);
 			}}
-			data-test="toast-create-btn"
+			data-test="notification-create-btn"
 		>
-			Add a toast
+			Add a notification
 		</button>
 	</div>
 	<pre class="language-js"><code class="language-js">{@html codeHtml}</code></pre>
 	<div class="controls">
 		<label>
 			<span>Message</span>
-			<input type="text" bind:value={msg} data-test="toast-msg-input" />
+			<input type="text" bind:value={msg} data-test="notification-msg-input" />
 		</label>
 		<label>
 			<span>Type</span>

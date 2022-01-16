@@ -1,3 +1,3 @@
-export { default as Toasts } from './Toasts.svelte';
-export { addToast, removeToast } from './toastStore';
+export { default as Notifications } from './Notifications.svelte';
+export { notification as notification, removeNotification } from './notificationStore';
 export { default as Modal } from './Modal.svelte';

@@ -2,18 +2,18 @@
 	import type { SvelteComponent } from 'svelte';
 	import { flip } from 'svelte/animate';
 	import Cancel from './Cancel.svelte';
-	import Toast from './Toast.svelte';
-	import { toasts } from './toastStore';
+	import Notification from './Notification.svelte';
+	import { notifications } from './notificationStore';
 
-	export let toastComponent = Toast;
+	export let notificationComponent = Notification;
 	export let cancelIcon: typeof SvelteComponent = Cancel;
 </script>
 
-{#if $toasts.length}
+{#if $notifications.length}
 	<ul>
-		{#each $toasts as toast (toast.id)}
+		{#each $notifications as notification (notification.id)}
 			<li animate:flip>
-				<svelte:component this={toastComponent} {toast} {cancelIcon} />
+				<svelte:component this={notificationComponent} {notification} {cancelIcon} />
 			</li>
 		{/each}
 	</ul>
@@ -28,7 +28,7 @@
 		align-items: center;
 
 		position: fixed;
-		bottom: var(--as-toast-bottom, 1em);
+		bottom: var(--as-notification-bottom, 1em);
 		right: 50%;
 		transform: translate(50%, 0%);
 

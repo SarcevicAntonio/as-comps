@@ -2,11 +2,11 @@
 	import Docs from './Docs.md';
 	import ModalDemo from './_modal/Demo.svelte';
 	import ModalDocs from './_modal/Docs.md';
-	import ToastDemo from './_toast/Demo.svelte';
-	import ToastDocs from './_toast/Docs.md';
+	import NotificationDemo from './_notification/Demo.svelte';
+	import NotificationDocs from './_notification/Docs.md';
 
 	const comps = [
-		{ id: 'toast', title: '🍞 Toast', demo: ToastDemo, docs: ToastDocs },
+		{ id: 'notification', title: '💬 Notification', demo: NotificationDemo, docs: NotificationDocs },
 		{ id: 'modal', title: '🔲 Modal', demo: ModalDemo, docs: ModalDocs },
 	];
 </script>

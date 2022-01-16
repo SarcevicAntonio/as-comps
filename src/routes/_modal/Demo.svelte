@@ -1,9 +1,9 @@
 <script>
-	import { addToast, Modal } from '$lib';
+	import { notification, Modal } from '$lib';
 	import Prism from 'prismjs';
 
 	function deleteEntry() {
-		addToast('Deleted entry', 'warn');
+		notification('Deleted entry', 'warn');
 	}
 
 	let mandatory = false;
