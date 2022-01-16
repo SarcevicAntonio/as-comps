@@ -14,7 +14,7 @@
 		removeToast(toast.id);
 	}
 
-	const condTrans = (node, args) => !removingMyself ? fade(node,args) : scale(node,args);
+	const condTrans = (node, args) => (!removingMyself ? fade(node, args) : scale(node, args));
 </script>
 
 <div class={toast.type} in:fly={{ y: -600, duration: 400 }} out:condTrans>
