@@ -6,7 +6,12 @@
 	import NotificationDocs from './_notification/Docs.md';
 
 	const comps = [
-		{ id: 'notification', title: '💬 Notification', demo: NotificationDemo, docs: NotificationDocs },
+		{
+			id: 'notification',
+			title: '💬 Notification',
+			demo: NotificationDemo,
+			docs: NotificationDocs,
+		},
 		{ id: 'modal', title: '🔲 Modal', demo: ModalDemo, docs: ModalDocs },
 	];
 </script>

@@ -19,18 +19,32 @@ article > h1,
 article > h2 {
 	padding-top: 5em;
 }
-.btn {
+.btn,
+.copy-btn {
 	display: inline-block;
 	border-radius: 0.5em;
-	border: 1px solid gray;
-	background-color: white;
-	padding: 0.5em 1em;
 	cursor: pointer;
 	box-shadow: 0px 0.8px 0.4px rgba(0, 0, 0, 0.028), 0px 2.7px 1.3px rgba(0, 0, 0, 0.042),
 		0px 12px 6px rgba(0, 0, 0, 0.07);
-	transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+	transition: box-shadow 0.2s ease-in-out;
 	font: inherit;
+	border: 1px solid gray;
 }
+.btn {
+	border: 1px solid gray;
+	background-color: white;
+	padding: 0.5em 1em;
+}
+.copy-btn {
+	background-color: #2e3440;
+	color: white;
+	opacity: 0.6;
+	transition: box-shadow 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+.copy-btn:hover {
+	opacity: 1;
+}
+
 input,
 select {
 	display: inline-block;
@@ -56,7 +70,6 @@ label select {
 	box-shadow: 0 0.3px 1.4px rgba(0, 0, 0, 0.068), 0 0.7px 3.5px rgba(0, 0, 0, 0.098),
 		0 1.4px 7.1px rgba(0, 0, 0, 0.122), 0 2.9px 14.6px rgba(0, 0, 0, 0.152),
 		0 8px 40px rgba(0, 0, 0, 0.22);
-	transform: scale(1.1);
 }
 
 code {
@@ -66,6 +79,15 @@ code {
 pre {
 	max-width: 100%;
 	overflow-y: auto;
+	position: relative;
+}
+
+pre[class*='language-'] button {
+	position: absolute;
+	top: 4px;
+	right: 4px;
+
+	/* more stuff */
 }
 
 summary {
