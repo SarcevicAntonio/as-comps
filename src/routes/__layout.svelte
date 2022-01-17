@@ -16,7 +16,7 @@
 				button.innerText = 'copy';
 				button.className = 'copy-btn';
 				button.addEventListener('click', copyCode);
-				block.appendChild(button);
+				block.prepend(button);
 			}
 		});
 
