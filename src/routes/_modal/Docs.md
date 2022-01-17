@@ -34,6 +34,15 @@ If you want to override the default trigger label or class you can pass in the p
 <Modal triggerLabel="my modal" triggerClass="btn">Hello Modal</Modal>
 ```
 
+Or you can pass in a `slot="triggerLabel"`
+
+```html
+<Modal>
+	<svelte:fragment slot="triggerLabel">my modal</svelte:fragment>
+	Hello Modal
+</Modal>
+```
+
 #### `let:toggle` & `slot="modalActions"`
 
 When creating a confirm modal, you need to toggle the opening state at different places. For this, a `toggle()` function is provided via slot props. Simply add `let:toggle` to the `<Modal>` tag and call it when appropriate.
