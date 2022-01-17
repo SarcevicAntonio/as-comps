@@ -40,7 +40,6 @@ notification('a warning notification', { type: 'warn' });
 notification('This notification will display for about 11,574 days.', { removeAfter: 9001 });
 
 notification('You did something undoable.', { action: ['undo', undoCallback] });
-
 ```
 
 <!--

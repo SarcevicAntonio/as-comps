@@ -14,7 +14,7 @@
 			if (navigator.clipboard) {
 				let button = document.createElement('button');
 				button.innerText = 'copy';
-				button.className = "copy-btn"
+				button.className = 'copy-btn';
 				button.addEventListener('click', copyCode);
 				block.appendChild(button);
 			}
