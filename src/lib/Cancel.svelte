@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Notification } from './notificationStore';
+	import type { Notification } from './Notifications/notificationStore';
 
 	export let type: Notification['type'] = 'info';
 

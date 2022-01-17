@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { SvelteComponent } from 'svelte';
 	import { flip } from 'svelte/animate';
-	import Cancel from './Cancel.svelte';
+	import Cancel from '../Cancel.svelte';
 	import Notification from './Notification.svelte';
 	import { notifications } from './notificationStore';
 
