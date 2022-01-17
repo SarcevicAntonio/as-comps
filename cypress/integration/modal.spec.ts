@@ -22,7 +22,7 @@ it('can display mandatory modal', () => {
 	cy.getBySel('modal-content').type('{esc}');
 	cy.wait(500);
 	modalContentShould('exist');
-	cy.contains('No').click();
+	cy.getBySel('modal-close').click();
 	cy.wait(500);
 	modalContentShould('not.exist');
 });

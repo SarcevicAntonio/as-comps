@@ -40,7 +40,7 @@
 			<h2 data-test="modal-content">Are you sure you want to delete the entry?</h2>
 			<p>This action can not be reversed.</p>
 			<svelte:fragment slot="modalActions">
-				<button class="btn" on:click={toggle}>No</button>
+				<button class="btn" on:click={toggle} data-test="modal-close">No</button>
 				<button
 					class="btn"
 					on:click={() => {
