@@ -2,15 +2,38 @@
 	import { notification } from '$lib';
 	import Prism from 'prismjs';
 
-	let msg = 'Just a notification';
-	let type: 'info' | 'warn' = 'info';
-	let delay = 5000;
+	let msg = 'a notification';
+	let type: 'info' | 'warn' = undefined;
+	let removeAfter = 0;
+	let actionable = false;
 
-	$: code = `notification("${msg}"${type ? `, "${type}"` : delay ? `, undefined` : ''}${
-		delay ? `, ${delay}` : ''
+	$: code = `notification("${msg}"${
+		type || removeAfter || actionable
+			? `, {${
+					type
+						? `
+		type: "${type}",`
+						: ''
+			  }${
+					removeAfter
+						? `
+		removeAfter: ${removeAfter},`
+						: ``
+			  }${
+					actionable
+						? `
+		action: ['action label', callback]`
+						: ``
+			  }
+	}`
+			: ''
 	});`;
 
 	$: codeHtml = Prism.highlight(code, Prism.languages.javascript, 'javascript');
+
+	function callback() {
+		console.log('some action has taken place!');
+	}
 </script>
 
 <h3 id="demo">Demo</h3>
@@ -20,7 +43,11 @@
 		<button
 			class="btn"
 			on:click={() => {
-				notification(msg, type, delay);
+				notification(msg, {
+					type,
+					removeAfter,
+					action: actionable ? ['action label', callback] : undefined,
+				});
 			}}
 			data-test="notification-create-btn"
 		>
@@ -41,10 +68,16 @@
 				<option value="warn">warn</option>
 			</select>
 		</label>
-
 		<label>
 			<span>Remove after</span>
-			<input type="number" bind:value={delay} />
+			<input type="number" step="250" bind:value={removeAfter} />
+		</label>
+		<label>
+			<span>Actionable</span>
+			<select bind:value={actionable}>
+				<option value={false}>false</option>
+				<option value={true}>true</option>
+			</select>
 		</label>
 	</div>
 </section>

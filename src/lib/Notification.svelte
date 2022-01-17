@@ -7,23 +7,34 @@
 	export let notification: Notification;
 	export let cancelIcon: typeof SvelteComponent;
 
-	let removingMyself = false;
+	let dismissMyself = false;
 
-	function removeMyself() {
-		removingMyself = true;
+	function dismiss() {
+		dismissMyself = true;
 		removeNotification(notification.id);
 	}
 
-	const condTrans = (node, args) => (!removingMyself ? fade(node, args) : scale(node, args));
+	const condTrans = (node, args) => (!dismissMyself ? fade(node, args) : scale(node, args));
 </script>
 
 <div class={notification.type} in:fly={{ y: -600, duration: 400 }} out:condTrans>
 	<span role="status" data-test="notification-msg">
 		{@html notification.msg}
 	</span>
-	<button on:click={removeMyself} aria-label="Cancel Button">
-		<svelte:component this={cancelIcon} type={notification.type} />
-	</button>
+	{#if notification.action}
+		<button
+			on:click={() => {
+				notification.action[1]();
+				dismiss();
+			}}
+		>
+			{notification.action[0]}
+		</button>
+	{:else}
+		<button on:click={dismiss} aria-label="Cancel Button">
+			<svelte:component this={cancelIcon} type={notification.type} />
+		</button>
+	{/if}
 </div>
 
 <style>

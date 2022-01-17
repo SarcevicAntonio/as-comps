@@ -31,15 +31,16 @@ third parameter. By default, notifications will be displayed for 5000 millisecon
 ```js
 import { notification } from 'as-comps';
 
-notification("hello notification");
+notification('hello notification');
 
-addToast("<b>yaay!</b> you did it!");
+notification('<b>yaay!</b> you did it!');
 
-notification("an info notification (default)", 'info');
+notification('a warning notification', { type: 'warn' });
 
-notification("a warning notification", 'warn');
+notification('This notification will display for about 11,574 days.', { removeAfter: 9001 });
 
-notification('This notification will display for about 11,574 days.', undefined, 9001);
+notification('You did something undoable.', { action: ['undo', undoCallback] });
+
 ```
 
 <!--
