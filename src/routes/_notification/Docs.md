@@ -17,7 +17,7 @@ or `src/pages/_layout.svelte` for Routify, like this:
 This is used to display the notifications, so it needs to be rendered wherever you want your notifications
 visible.
 
-#### `notification(msg, type, removeDelay)`
+#### `notification(msg, {type, removeAfter, action})`
 
 To create or **add a notification** import the `notification` function from
 `"as-comps"` and call it with a message or any HTML.
