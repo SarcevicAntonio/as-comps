@@ -3,7 +3,7 @@
 	import Prism from 'prismjs';
 
 	function deleteEntry() {
-		notification('Deleted entry', 'warn');
+		notification('Deleted entry', { type: 'warn' });
 	}
 
 	let mandatory = false;
