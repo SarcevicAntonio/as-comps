@@ -4,15 +4,24 @@
 	import ModalDocs from './_modal/Docs.md';
 	import NotificationDemo from './_notification/Demo.svelte';
 	import NotificationDocs from './_notification/Docs.md';
+	import TabDemo from './_tabgroup/Demo.svelte';
 
 	const comps = [
 		{
 			id: 'notification',
 			title: '💬 Notification',
-			demo: NotificationDemo,
-			docs: NotificationDocs,
+			comps: [NotificationDemo, NotificationDocs],
 		},
-		{ id: 'modal', title: '🔲 Modal', demo: ModalDemo, docs: ModalDocs },
+		{
+			id: 'modal',
+			title: '🔲 Modal',
+			comps: [ModalDemo, ModalDocs],
+		},
+		{
+			id: 'tabs',
+			title: '📑 Tabs & TabGroup',
+			comps: [TabDemo],
+		},
 	];
 </script>
 
@@ -32,11 +41,10 @@
 {#each comps as item}
 	<article>
 		<h2 id={item.id}>{item.title}</h2>
-		{#if item.demo}
-			<svelte:component this={item.demo} />
-		{/if}
-		{#if item.docs}
-			<svelte:component this={item.docs} />
+		{#if item.comps}
+			{#each item.comps as comp}
+				<svelte:component this={comp} />
+			{/each}
 		{/if}
 	</article>
 {/each}
