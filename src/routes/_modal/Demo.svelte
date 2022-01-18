@@ -52,7 +52,6 @@
 			</svelte:fragment>
 		</Modal>
 	</div>
-	<Codesample {code} />
 	<div class="controls">
 		<label>
 			<span>mandatory</span>
@@ -66,4 +65,5 @@
 			<input type="text" bind:value={triggerLabel} data-test="modal-trigger-label" />
 		</label>
 	</div>
+	<Codesample {code} />
 </section>

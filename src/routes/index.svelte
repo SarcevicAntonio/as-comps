@@ -51,21 +51,22 @@
 
 <style>
 	ul {
-		margin: 1em;
 		padding: 1em;
 		list-style: none;
 		background-color: white;
 		border: 1px solid lightgray;
 		border-radius: 0.3em;
+		box-shadow: var(--card-shadow);
 	}
 	ul h2 {
 		margin: 0;
 	}
-	@media only screen and (min-width: 1200px) {
+	@media only screen and (min-width: 1320px) {
 		ul {
 			position: fixed;
 			top: 0;
 			left: 0;
+			margin: 1em;
 		}
 	}
 </style>

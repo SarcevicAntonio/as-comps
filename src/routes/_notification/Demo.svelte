@@ -4,7 +4,7 @@
 
 	let msg = 'a notification';
 	let type: 'info' | 'warn' = undefined;
-	let removeAfter = 0;
+	let removeAfter = undefined;
 	let actionable = false;
 
 	$: code = `notification("${msg}"${
@@ -52,7 +52,6 @@
 			Add a notification
 		</button>
 	</div>
-	<Codesample {code} lang="js" />
 	<div class="controls">
 		<label>
 			<span>Message</span>
@@ -78,4 +77,5 @@
 			</select>
 		</label>
 	</div>
+	<Codesample {code} lang="js" />
 </section>
