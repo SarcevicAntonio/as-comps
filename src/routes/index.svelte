@@ -1,7 +1,7 @@
 <script>
 	import Docs from './Docs.md';
-	import ModalDemo from './_modal/Demo.svelte';
-	import ModalDocs from './_modal/Docs.md';
+	import DialogDemo from './_dialog/Demo.svelte';
+	import DialogDocs from './_dialog/Docs.md';
 	import NotificationDemo from './_notification/Demo.svelte';
 	import NotificationDocs from './_notification/Docs.md';
 	import TabDemo from './_tabgroup/Demo.svelte';
@@ -13,9 +13,9 @@
 			comps: [NotificationDemo, NotificationDocs],
 		},
 		{
-			id: 'modal',
-			title: '🔲 Modal',
-			comps: [ModalDemo, ModalDocs],
+			id: 'dialog',
+			title: '🔲 Dialog',
+			comps: [DialogDemo, DialogDocs],
 		},
 		{
 			id: 'tabs',

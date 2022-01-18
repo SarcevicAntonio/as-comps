@@ -3,4 +3,4 @@ export {
 	notification as notification,
 	removeNotification,
 } from './Notifications/notificationStore';
-export { default as Modal } from './Modal.svelte';
+export { default as Dialog } from './Dialog.svelte';
