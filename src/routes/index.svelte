@@ -26,7 +26,7 @@
 </script>
 
 <article>
-	<h1 id="intro">🧱 AS Comps</h1>
+	<h1 tabindex="-1" id="intro">🧱 AS Comps</h1>
 	<Docs />
 </article>
 
