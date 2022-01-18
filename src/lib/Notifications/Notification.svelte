@@ -16,9 +16,26 @@
 	}
 
 	const condTrans = (node, args) => (!dismissMyself ? fade(node, args) : scale(node, args));
+
+	function handleMouseEnter() {
+		clearTimeout(notification.timeoutRef);
+	}
+
+	function handleMouseLeave() {
+		const timeoutRef = setTimeout(() => {
+			removeNotification(notification.id);
+		}, notification.removeAfter);
+		notification.timeoutRef = timeoutRef;
+	}
 </script>
 
-<div class={notification.type} in:fly={{ y: -600, duration: 400 }} out:condTrans>
+<div
+	class={notification.type}
+	in:fly={{ y: -600, duration: 400 }}
+	out:condTrans
+	on:mouseenter={handleMouseEnter}
+	on:mouseleave={handleMouseLeave}
+>
 	<span role="status" data-test="notification-msg">
 		{@html notification.msg}
 	</span>
