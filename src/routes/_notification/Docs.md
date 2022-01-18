@@ -20,7 +20,7 @@ visible.
 #### `notification(msg, {type, removeAfter, action})`
 
 To create or **add a notification** import the `notification` function from
-`"as-comps"` and call it with a message or any HTML.
+`'as-comps'` and call it with a message or any HTML.
 
 Set the **notification type** with the second parameter. Currently, there is only two types:
 'info' and 'warn'. By default, notifications will be of type 'info'.
