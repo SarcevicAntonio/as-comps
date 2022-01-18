@@ -1,6 +1,6 @@
 <script>
 	import { notification, Modal } from '$lib';
-	import Codesample from '$lib/internal/Codesample.svelte';
+	import Codesample from '../_internal/Codesample.svelte';
 
 	function deleteEntry() {
 		notification('Deleted entry', { type: 'warn' });

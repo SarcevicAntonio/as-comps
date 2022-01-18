@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { notification } from '$lib';
-	import Codesample from '$lib/internal/Codesample.svelte';
+	import Codesample from '../_internal/Codesample.svelte';
 
 	let msg = 'a notification';
 	let type: 'info' | 'warn' = undefined;
