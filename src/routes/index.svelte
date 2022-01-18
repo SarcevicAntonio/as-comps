@@ -19,7 +19,7 @@
 		},
 		{
 			id: 'tabs',
-			title: '📑 Tabs & TabGroup',
+			title: '📑 TabGroup + Tab',
 			comps: [TabDemo],
 		},
 	];
@@ -48,6 +48,11 @@
 		{/if}
 	</article>
 {/each}
+
+<footer>
+	Made with ❤️ by
+	<a href="https://www.sarcevic.dev/" target="_blank">Antonio Sarcevic</a>
+</footer>
 
 <style>
 	ul {
