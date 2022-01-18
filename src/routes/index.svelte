@@ -31,7 +31,7 @@
 </article>
 
 <ul>
-	<h2>Index</h2>
+	<h2 tabindex="-1">Index</h2>
 	<li><a href="#intro">🧱 As Comps Intro</a></li>
 	{#each comps as item}
 		<li><a href="#{item.id}">{item.title}</a></li>
@@ -40,7 +40,7 @@
 
 {#each comps as item}
 	<article>
-		<h2 id={item.id}>{item.title}</h2>
+		<h2 tabindex="-1" id={item.id}>{item.title}</h2>
 		{#if item.comps}
 			{#each item.comps as comp}
 				<svelte:component this={comp} />

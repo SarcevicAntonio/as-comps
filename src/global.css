@@ -3,10 +3,12 @@ html {
 		Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	font-size: 1.1em;
 	line-height: 1.6;
-	scroll-behavior: smooth;
 	background: hsl(161, 100%, 97%);
 	background: linear-gradient(120deg, hsl(281, 100%, 97%) 0%, hsl(161, 100%, 97%) 100%);
 	padding: 0 1em;
+}
+html:focus-within {
+	scroll-behavior: smooth;
 }
 body {
 	max-width: 75ch;
@@ -17,7 +19,7 @@ article {
 }
 article > h1,
 article > h2 {
-	padding-top: 5em;
+	padding-top: 2.5em;
 }
 .btn,
 .copy-btn {
