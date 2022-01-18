@@ -11,6 +11,7 @@
 
 	function dismiss() {
 		dismissMyself = true;
+		clearTimeout(notification.timeoutRef);
 		removeNotification(notification.id);
 	}
 
