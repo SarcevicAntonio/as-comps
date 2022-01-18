@@ -7,28 +7,6 @@
 	let removeAfter = undefined;
 	let actionable = false;
 
-	$: code = `notification("${msg}"${
-		type || removeAfter || actionable
-			? `, {${
-					type
-						? `
-		type: "${type}",`
-						: ''
-			  }${
-					removeAfter
-						? `
-		removeAfter: ${removeAfter},`
-						: ``
-			  }${
-					actionable
-						? `
-		action: ['action label', callback]`
-						: ``
-			  }
-	}`
-			: ''
-	});`;
-
 	function callback() {
 		console.log('some action has taken place!');
 	}
@@ -77,5 +55,28 @@
 			</select>
 		</label>
 	</div>
-	<Codesample {code} lang="js" />
+	<Codesample
+		code={`notification("${msg}"${
+			type || removeAfter || actionable
+				? `, {${
+						type
+							? `
+		type: "${type}",`
+							: ''
+				  }${
+						removeAfter
+							? `
+		removeAfter: ${removeAfter},`
+							: ``
+				  }${
+						actionable
+							? `
+		action: ['action label', callback]`
+							: ``
+				  }
+	}`
+				: ''
+		});`}
+		lang="js"
+	/>
 </section>

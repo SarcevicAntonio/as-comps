@@ -8,6 +8,7 @@
 
 	let tabs = [];
 	const activeTab = writable('');
+	export let triggerClass = '';
 
 	setContext(key, {
 		addTab(label) {
@@ -29,6 +30,7 @@
 					$activeTab = label;
 				}}
 				class:active={$activeTab === label}
+				class={triggerClass}
 			>
 				{label}
 			</button>
@@ -39,6 +41,14 @@
 <slot />
 
 <style>
+	ul {
+		padding: 0;
+		margin-top: 0;
+		list-style: none;
+		display: flex;
+		align-items: center;
+		gap: 0.5em;
+	}
 	.active {
 		text-decoration: underline;
 	}
