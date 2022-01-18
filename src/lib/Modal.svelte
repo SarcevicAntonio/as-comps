@@ -19,6 +19,10 @@
 	function toggle() {
 		open = !open;
 	}
+
+	export function bodyPortal(node: HTMLElement) {
+		document.querySelector('body').appendChild(node);
+	}
 </script>
 
 <svelte:body on:keydown={keydown} />
@@ -35,7 +39,7 @@
 {/if}
 
 {#if open}
-	<div class="container">
+	<div class="container" use:bodyPortal>
 		<div class="overlay" transition:fade on:click={dismiss} />
 		<div class="modal" role="dialog" aria-labelledby="modal-content" in:scale out:fade>
 			{#if !mandatory}
