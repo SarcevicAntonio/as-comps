@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { notification } from '$lib';
-	import Prism from 'prismjs';
+	import Codesample from '$lib/internal/Codesample.svelte';
 
 	let msg = 'a notification';
 	let type: 'info' | 'warn' = undefined;
@@ -29,8 +29,6 @@
 			: ''
 	});`;
 
-	$: codeHtml = Prism.highlight(code, Prism.languages.javascript, 'javascript');
-
 	function callback() {
 		console.log('some action has taken place!');
 	}
@@ -54,7 +52,7 @@
 			Add a notification
 		</button>
 	</div>
-	<pre class="language-js"><code class="language-js">{@html codeHtml}</code></pre>
+	<Codesample {code} lang="js" />
 	<div class="controls">
 		<label>
 			<span>Message</span>

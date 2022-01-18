@@ -1,6 +1,6 @@
 <script>
 	import { notification, Modal } from '$lib';
-	import Prism from 'prismjs';
+	import Codesample from '$lib/internal/Codesample.svelte';
 
 	function deleteEntry() {
 		notification('Deleted entry', { type: 'warn' });
@@ -27,9 +27,8 @@
 			Yes
 		</button>
 	</svelte:fragment>
-</Modal>`;
-
-	$: codeHtml = Prism.highlight(code, Prism.languages.html, 'html');
+</Modal>
+`;
 </script>
 
 <h3 id="demo">Demo</h3>
@@ -53,7 +52,7 @@
 			</svelte:fragment>
 		</Modal>
 	</div>
-	<pre class="language-html"><code class="language-html">{@html codeHtml}</code></pre>
+	<Codesample {code} />
 	<div class="controls">
 		<label>
 			<span>mandatory</span>
