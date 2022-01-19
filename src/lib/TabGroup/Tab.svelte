@@ -14,6 +14,6 @@
 	});
 </script>
 
-{#if $activeTab === label}
+<div style="display: {!$activeTab || $activeTab === label ? 'block' : 'none'}">
 	<slot />
-{/if}
+</div>
