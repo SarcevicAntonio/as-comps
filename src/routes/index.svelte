@@ -1,58 +1,92 @@
 <script>
 	import Docs from './Docs.md';
-	import ModalDemo from './_modal/Demo.svelte';
-	import ModalDocs from './_modal/Docs.md';
-	import ToastDemo from './_toast/Demo.svelte';
-	import ToastDocs from './_toast/Docs.md';
+	import DialogDemo from './_dialog/Demo.svelte';
+	import DialogDocs from './_dialog/Docs.md';
+	import NotificationDemo from './_notification/Demo.svelte';
+	import NotificationDocs from './_notification/Docs.md';
+	import TabDemo from './_tabgroup/Demo.svelte';
+	import TabDocs from './_tabgroup/Docs.md';
 
 	const comps = [
-		{ id: 'toast', title: '🍞 Toast', demo: ToastDemo, docs: ToastDocs },
-		{ id: 'modal', title: '🔲 Modal', demo: ModalDemo, docs: ModalDocs },
+		{
+			id: 'notification',
+			title: '💬 Notification',
+			comps: [NotificationDemo, NotificationDocs],
+		},
+		{
+			id: 'dialog',
+			title: '🔲 Dialog',
+			comps: [DialogDemo, DialogDocs],
+		},
+		{
+			id: 'tabs',
+			title: '📑 TabGroup + Tab',
+			comps: [TabDemo, TabDocs],
+		},
 	];
 </script>
 
 <article>
-	<h1 id="intro">🧱 AS Comps</h1>
+	<h1 tabindex="-1" id="intro">🧱 AS Comps</h1>
 	<Docs />
 </article>
 
 <ul>
-	<h2>Index</h2>
+	<h2 id="index" tabindex="-1">Index</h2>
 	<li><a href="#intro">🧱 As Comps Intro</a></li>
 	{#each comps as item}
 		<li><a href="#{item.id}">{item.title}</a></li>
 	{/each}
 </ul>
 
+<a href="#index" class="btn">go to index</a>
+
 {#each comps as item}
 	<article>
-		<h2 id={item.id}>{item.title}</h2>
-		{#if item.demo}
-			<svelte:component this={item.demo} />
-		{/if}
-		{#if item.docs}
-			<svelte:component this={item.docs} />
+		<h2 tabindex="-1" id={item.id}>{item.title}</h2>
+		{#if item.comps}
+			{#each item.comps as comp}
+				<svelte:component this={comp} />
+			{/each}
 		{/if}
 	</article>
 {/each}
 
+<footer>
+	Made with ❤️ by
+	<a href="https://www.sarcevic.dev/" target="_blank">Antonio Sarcevic</a>
+</footer>
+
 <style>
 	ul {
-		margin: 1em;
 		padding: 1em;
 		list-style: none;
 		background-color: white;
 		border: 1px solid lightgray;
 		border-radius: 0.3em;
+		box-shadow: var(--card-shadow);
+		position: fixed;
+		top: 0;
+		left: 0;
+		margin: 1em;
+	}
+	.btn {
+		display: none;
+		position: fixed;
+		padding-bottom: 1em;
+		bottom: -1.5em;
+		left: 0;
+		margin: 1em;
 	}
 	ul h2 {
 		margin: 0;
 	}
-	@media only screen and (min-width: 1200px) {
+	@media only screen and (max-width: 1320px) {
 		ul {
-			position: fixed;
-			top: 0;
-			left: 0;
+			position: static;
+		}
+		.btn {
+			display: block;
 		}
 	}
 </style>
