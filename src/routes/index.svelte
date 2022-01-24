@@ -89,15 +89,20 @@
 		flex-direction: column;
 		gap: 0.5em;
 	}
-
+	ul li a {
+		text-decoration: none;
+		font-size: 1.2em;
+		font-weight: 600;
+	}
+	ul li a:hover,
+	ul li a:focus {
+		text-decoration: underline;
+	}
 	button.index-menu {
 		font-size: 2em;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-	}
-	ul h2 {
-		margin: 0;
 	}
 	@media only screen and (max-width: 1320px) {
 		ul {
