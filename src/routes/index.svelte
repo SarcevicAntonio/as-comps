@@ -1,7 +1,10 @@
 <script>
+	import Cancel from '$lib/Cancel.svelte';
+
 	import Docs from './Docs.md';
 	import DialogDemo from './_dialog/Demo.svelte';
 	import DialogDocs from './_dialog/Docs.md';
+	import IconMenu from './_internal/IconMenu.svelte';
 	import NotificationDemo from './_notification/Demo.svelte';
 	import NotificationDocs from './_notification/Docs.md';
 	import TabDemo from './_tabgroup/Demo.svelte';
@@ -24,6 +27,12 @@
 			comps: [TabDemo, TabDocs],
 		},
 	];
+
+	export let indexVisible = false;
+
+	function toggleIndex() {
+		indexVisible = !indexVisible;
+	}
 </script>
 
 <article>
@@ -31,15 +40,19 @@
 	<Docs />
 </article>
 
-<ul>
-	<h2 id="index" tabindex="-1">Index</h2>
-	<li><a href="#intro">🧱 As Comps Intro</a></li>
-	{#each comps as item}
-		<li><a href="#{item.id}">{item.title}</a></li>
-	{/each}
-</ul>
-
-<a href="#index" class="btn">go to index</a>
+{#if indexVisible}
+	<ul class="index-menu">
+		<li><a href="#intro">🧱 As Comps Intro</a></li>
+		{#each comps as item}
+			<li><a href="#{item.id}">{item.title}</a></li>
+		{/each}
+		<button class="btn" on:click={toggleIndex}>Close index</button>
+	</ul>
+{:else}
+	<button class="btn index-menu" on:click={toggleIndex} aria-label="Open Index">
+		<IconMenu />
+	</button>
+{/if}
 
 {#each comps as item}
 	<article>
@@ -58,25 +71,30 @@
 </footer>
 
 <style>
-	ul {
-		padding: 1em;
-		list-style: none;
+	.index-menu {
 		background-color: white;
 		border: 1px solid lightgray;
 		border-radius: 0.3em;
 		box-shadow: var(--card-shadow);
 		position: fixed;
-		top: 0;
+		bottom: 0;
 		left: 0;
-		margin: 1em;
+		margin: 1rem;
+		padding: 1rem;
 	}
-	.btn {
-		display: none;
-		position: fixed;
-		padding-bottom: 1em;
-		bottom: -1.5em;
-		left: 0;
-		margin: 1em;
+	ul {
+		padding: 0em;
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5em;
+	}
+
+	button.index-menu {
+		font-size: 2em;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 	ul h2 {
 		margin: 0;
