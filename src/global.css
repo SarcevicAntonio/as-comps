@@ -132,6 +132,18 @@ kbd {
 	border-top: 0;
 }
 
+@media only screen and (max-width: 745px) {
+	.toybox .controls {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media only screen and (max-width: 510px) {
+	.toybox .controls {
+		grid-template-columns: 1fr;
+	}
+}
+
 .card {
 	background-color: white;
 	border-radius: 0.3em;
