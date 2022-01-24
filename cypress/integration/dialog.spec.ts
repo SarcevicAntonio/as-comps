@@ -3,7 +3,7 @@ const dialogTriggerLabel = 'Open Dialog';
 const dialogContentShould = (chainer) => cy.getBySel('dialog-content').should(chainer);
 
 beforeEach(() => {
-	cy.visit('');
+	cy.visit('#dialog');
 	cy.getBySel('dialog-trigger-label').clear().type(dialogTriggerLabel);
 	dialogContentShould('not.exist');
 });

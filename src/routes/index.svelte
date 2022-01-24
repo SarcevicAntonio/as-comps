@@ -5,6 +5,7 @@
 	import NotificationDemo from './_notification/Demo.svelte';
 	import NotificationDocs from './_notification/Docs.md';
 	import TabDemo from './_tabgroup/Demo.svelte';
+	import TabDocs from './_tabgroup/Docs.md';
 
 	const comps = [
 		{
@@ -20,7 +21,7 @@
 		{
 			id: 'tabs',
 			title: '📑 TabGroup + Tab',
-			comps: [TabDemo],
+			comps: [TabDemo, TabDocs],
 		},
 	];
 </script>
@@ -31,12 +32,14 @@
 </article>
 
 <ul>
-	<h2 tabindex="-1">Index</h2>
+	<h2 id="index" tabindex="-1">Index</h2>
 	<li><a href="#intro">🧱 As Comps Intro</a></li>
 	{#each comps as item}
 		<li><a href="#{item.id}">{item.title}</a></li>
 	{/each}
 </ul>
+
+<a href="#index" class="btn">go to index</a>
 
 {#each comps as item}
 	<article>
@@ -62,16 +65,28 @@
 		border: 1px solid lightgray;
 		border-radius: 0.3em;
 		box-shadow: var(--card-shadow);
+		position: fixed;
+		top: 0;
+		left: 0;
+		margin: 1em;
+	}
+	.btn {
+		display: none;
+		position: fixed;
+		padding-bottom: 1em;
+		bottom: -1.5em;
+		left: 0;
+		margin: 1em;
 	}
 	ul h2 {
 		margin: 0;
 	}
-	@media only screen and (min-width: 1320px) {
+	@media only screen and (max-width: 1320px) {
 		ul {
-			position: fixed;
-			top: 0;
-			left: 0;
-			margin: 1em;
+			position: static;
+		}
+		.btn {
+			display: block;
 		}
 	}
 </style>

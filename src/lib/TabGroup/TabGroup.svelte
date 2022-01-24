@@ -48,6 +48,11 @@
 		display: flex;
 		align-items: center;
 		gap: 0.5em;
+		overflow-y: visible;
+		overflow-x: auto;
+	}
+	li {
+		flex-shrink: 0;
 	}
 	.active {
 		text-decoration: underline;
