@@ -17,16 +17,24 @@ or `src/pages/_layout.svelte` for Routify, like this:
 This is used to display the notifications, so it needs to be rendered wherever you want your notifications
 visible.
 
+#### Notification position
+
+By default, the notifications will be displayed on the bottom center, or `'bottom'`. You can also place it to either `'top-left'` `'top'`, `'top-right'`, `'bottom-left'` or `'bottom-right'` by setting the `position` prop on the `<Notifications />` component.
+
+```html
+<Notifications position="top-right" />
+```
+
 #### `notification(msg, {type, removeAfter, action})`
 
 To create or **add a notification** import the `notification` function from
 `'as-comps'` and call it with a message or any HTML.
 
-Set the **notification type** with the second parameter. Currently, there is only two types:
-'info' and 'warn'. By default, notifications will be of type 'info'.
+The second parameter is a notificationOption object where the the properties `type`, `removeAfter` or `action` can be set:
 
-Set the **amount of time in milliseconds the notification will be displayed**s by setting the
-third parameter. By default, notifications will be displayed for 5000 milliseconds.
+- `type` controls the type of notification: 'info' (default) or 'warn'
+- `removeAfter` controls how long a notification stays on screen in ms, defaulting to 5000
+- `action` can be used to attach an action to the component. Pass in an array consisting of two entries: at index 0 a `label` for the notification action button and at index 1 a `callback` function that gets called when the action button is pressed. Setting an Action increases the default `removeAfter` time by two.
 
 ```js
 import { notification } from 'as-comps';
