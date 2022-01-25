@@ -14,6 +14,10 @@
 	});
 </script>
 
+<noscript>
+	{label}
+</noscript>
+
 <div style="display: {!$activeTab || $activeTab === label ? 'block' : 'none'}">
 	<slot />
 </div>

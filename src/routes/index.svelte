@@ -1,6 +1,6 @@
 <script>
-	import Cancel from '$lib/Cancel.svelte';
-
+	import { onMount, tick } from 'svelte';
+	import { fly, slide } from 'svelte/transition';
 	import Docs from './Docs.md';
 	import DialogDemo from './_dialog/Demo.svelte';
 	import DialogDocs from './_dialog/Docs.md';
@@ -28,11 +28,23 @@
 		},
 	];
 
-	export let indexVisible = false;
+	export let indexVisible = true;
 
 	function toggleIndex() {
 		indexVisible = !indexVisible;
 	}
+
+	let initial = true;
+
+	onMount(async () => {
+		if (window.innerWidth <= 1400) {
+			indexVisible = false;
+			await tick();
+			initial = false;
+		}
+	});
+
+	const condTrans = (node, args) => (initial ? null : args.trans(node, args));
 </script>
 
 <article>
@@ -41,7 +53,7 @@
 </article>
 
 {#if indexVisible}
-	<ul class="index-menu">
+	<ul transition:condTrans={{ trans: slide }} class="index-menu">
 		<li><a href="#intro">🧱 As Comps Intro</a></li>
 		{#each comps as item}
 			<li><a href="#{item.id}">{item.title}</a></li>
@@ -49,7 +61,12 @@
 		<button class="btn" on:click={toggleIndex}>Close index</button>
 	</ul>
 {:else}
-	<button class="btn index-menu" on:click={toggleIndex} aria-label="Open Index">
+	<button
+		transition:condTrans={{ trans: fly, x: -250 }}
+		class="btn index-menu"
+		on:click={toggleIndex}
+		aria-label="Open Index"
+	>
 		<IconMenu />
 	</button>
 {/if}
