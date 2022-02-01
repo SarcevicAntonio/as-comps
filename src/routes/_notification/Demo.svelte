@@ -1,7 +1,12 @@
+<script context="module" lang="ts">
+	export const notificationPosition: Writable<NotificationPosition> = writable('bottom');
+</script>
+
 <script lang="ts">
 	import { notification } from '$lib';
+	import type { NotificationPosition } from '$lib/Notifications/Notifications.svelte';
+	import { Writable, writable } from 'svelte/store';
 	import Codesample from '../_internal/Codesample.svelte';
-
 	let msg = 'a notification';
 	let type: 'info' | 'warn' = undefined;
 	let removeAfter = undefined;
@@ -54,6 +59,17 @@
 				<option value={true}>true</option>
 			</select>
 		</label>
+		<label>
+			<span>Position</span>
+			<select bind:value={$notificationPosition}>
+				<option value="top-left">top-left</option>
+				<option value="top">top</option>
+				<option value="top-right">top-right</option>
+				<option value="bottom-left">bottom-left</option>
+				<option value="bottom">bottom (default)</option>
+				<option value="bottom-right">bottom-right</option>
+			</select>
+		</label>
 	</div>
 	<Codesample
 		code={`notification("${msg}"${
@@ -76,7 +92,12 @@
 				  }
 	}`
 				: ''
-		});`}
+		});${
+			$notificationPosition !== 'bottom'
+				? `
+// <Notifications position="${$notificationPosition}" />`
+				: ''
+		}`}
 		lang="js"
 	/>
 </section>

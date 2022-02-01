@@ -1,11 +1,13 @@
 <script lang="ts">
 	import type { SvelteComponent } from 'svelte';
 	import { fade, fly, scale } from 'svelte/transition';
+	import type { NotificationPosition } from './Notifications.svelte';
 	import type { Notification } from './notificationStore';
 	import { removeNotification } from './notificationStore';
 
 	export let notification: Notification;
 	export let cancelIcon: typeof SvelteComponent;
+	export let position: NotificationPosition;
 
 	let dismissMyself = false;
 
@@ -31,7 +33,7 @@
 
 <div
 	class={notification.type}
-	in:fly={{ y: -600, duration: 400 }}
+	in:fly={{ y: position.includes('top') ? 400 : -400, duration: 400 }}
 	out:condTrans
 	on:mouseenter={handleMouseEnter}
 	on:mouseleave={handleMouseLeave}

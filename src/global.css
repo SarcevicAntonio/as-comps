@@ -73,7 +73,7 @@ label {
 .btn:hover {
 	box-shadow: 0 0.3px 1.4px rgba(0, 0, 0, 0.068), 0 0.7px 3.5px rgba(0, 0, 0, 0.098),
 		0 1.4px 7.1px rgba(0, 0, 0, 0.122), 0 2.9px 14.6px rgba(0, 0, 0, 0.152),
-		0 8px 40px rgba(0, 0, 0, 0.22);
+		0 8px 40px rgba(0, 0, 0, 0.22) !important;
 }
 
 code {
@@ -130,6 +130,18 @@ kbd {
 	background-color: hsl(220, 16%, 32%);
 	color: white;
 	border-top: 0;
+}
+
+@media only screen and (max-width: 745px) {
+	.toybox .controls {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media only screen and (max-width: 510px) {
+	.toybox .controls {
+		grid-template-columns: 1fr;
+	}
 }
 
 .card {
