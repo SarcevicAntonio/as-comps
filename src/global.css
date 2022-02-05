@@ -1,79 +1,79 @@
-:root {
-	--card-shadow: 0px 0.3px 2px rgba(0, 0, 0, 0.028), 0px 1.1px 4.9px rgba(0, 0, 0, 0.04),
-		0px 2.7px 9.3px rgba(0, 0, 0, 0.05), 0px 5.9px 16.5px rgba(0, 0, 0, 0.06),
-		0px 12.5px 30.9px rgba(0, 0, 0, 0.072), 0px 32px 74px rgba(0, 0, 0, 0.1);
+@import './props.css';
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+html:focus-within {
+	scroll-behavior: smooth;
 }
 
 html {
+	padding: 0 1em;
+	background: var(--bgg);
+	background: linear-gradient(120deg, var(--bg) 0%, var(--bgg) 100%);
+	color: var(--fg);
 	font-family: 'Atkinson Hyperlegible', Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI',
 		Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	font-size: 1.1em;
 	line-height: 1.6;
-	background: hsl(161, 100%, 97%);
-	background: linear-gradient(120deg, hsl(281, 100%, 97%) 0%, hsl(161, 100%, 97%) 100%);
-	padding: 0 1em;
 }
-html:focus-within {
-	scroll-behavior: smooth;
-}
+
 body {
 	max-width: 75ch;
 	margin: auto;
+	padding-top: 1px; /* collapsing margin hack */
 }
+
+:root {
+	--b: hsl(0deg 0% 100%);
+	--bg: hsl(281deg 100% 97%);
+	--bgg: hsl(161deg 100% 97%);
+	--accent: hsl(281deg 50% 42%);
+	--hi: hsl(161deg 50% 42%);
+	--fg: hsl(0deg 0% 0%);
+	--code-bg: hsl(220, 16%, 22%);
+	--code-border: hsl(220deg 16% 32%);
+}
+
+.dark-theme {
+	--b: hsl(0deg 0% 0%);
+	--bg: hsl(281deg 100% 3%);
+	--bgg: hsl(161deg 100% 3%);
+	--accent: hsl(281deg 50% 58%);
+	--hi: hsl(161deg 50% 58%);
+	--fg: hsl(0deg 0% 100%);
+}
+
 article,
 footer {
 	margin: 10em 0;
 }
+
 article > h1,
 article > h2 {
 	padding-top: 2.5em;
-}
-.btn,
-.copy-btn {
-	display: inline-block;
-	border-radius: 0.5em;
-	cursor: pointer;
-	box-shadow: 0px 0px 0.7px rgba(0, 0, 0, 0.014), 0px 0px 2px rgba(0, 0, 0, 0.02),
-		0px 0px 4.8px rgba(0, 0, 0, 0.026), 0px 0px 16px rgba(0, 0, 0, 0.04);
-	transition: box-shadow 0.2s ease-in-out;
-	font: inherit;
-	border: 1px solid gray;
-}
-.btn {
-	background-color: white;
-	padding: 0.5em 1em;
-}
-.copy-btn {
-	float: right;
-	background-color: #2e3440;
-	color: hsl(0, 0%, 69%);
-	transition: box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
-}
-.copy-btn:hover {
-	color: white;
 }
 
 input,
 select {
 	display: inline-block;
 	border-radius: 0.5em;
-	border: 1px solid gray;
-	background-color: white;
+	border: 1px solid var(--hi);
+	background-color: var(--b);
 	padding: 0.5em 1em;
 	margin: 0;
 	font: inherit;
 	box-sizing: border-box;
 	height: 3em;
 }
+
 label {
 	display: flex;
 	flex-direction: column;
 	max-width: 420px;
-}
-.btn:hover {
-	box-shadow: 0 0.3px 1.4px rgba(0, 0, 0, 0.068), 0 0.7px 3.5px rgba(0, 0, 0, 0.098),
-		0 1.4px 7.1px rgba(0, 0, 0, 0.122), 0 2.9px 14.6px rgba(0, 0, 0, 0.152),
-		0 8px 40px rgba(0, 0, 0, 0.22) !important;
 }
 
 code {
@@ -84,7 +84,7 @@ pre {
 	max-width: 100%;
 	overflow-y: auto;
 	box-shadow: var(--card-shadow);
-	border: 1px solid gray;
+	border: 1px solid var(--hi);
 }
 
 summary {
@@ -94,15 +94,44 @@ summary {
 kbd {
 	font-family: 'Fira Code', monospace;
 	font-size: 0.8em;
-	border: 1px solid gray;
+	background-color: var(--b);
+	border: 1px solid var(--hi);
 	border-radius: 0.25em;
 	padding: 0.25em 0.5em;
+}
+
+.btn,
+.copy-btn {
+	display: inline-block;
+	border-radius: 0.5em;
+	cursor: pointer;
+	transition: box-shadow 0.2s ease-in-out, border 0.2s ease-in-out;
+	font: inherit;
+	border: 1px solid var(--hi);
+	background-color: var(--background);
+}
+
+.btn {
+	--background: var(--b);
+	padding: 0.5em 1em;
+}
+
+.copy-btn {
+	--background: var(--code-bg);
+	float: right;
+	color: var(--bg);
+}
+
+.btn:hover,
+.copy-btn:hover {
+	box-shadow: var(--button-shadow-hover);
+	border-color: var(--background);
 }
 
 .toybox {
 	border-radius: 0.3em;
 	overflow: hidden;
-	border: 1px solid gray;
+	border: 1px solid var(--hi);
 	box-shadow: var(--card-shadow);
 }
 
@@ -111,24 +140,26 @@ kbd {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: hsl(220, 16%, 22%);
-	background-image: radial-gradient(hsl(220, 16%, 32%) 10%, transparent 0%);
+	background-color: var(--code-bg);
+	background-image: radial-gradient(var(--code-border) 10%, transparent 0%);
 	background-position: 50% 50%;
 	background-size: 16px 16px;
 }
+
 .toybox pre {
 	border-radius: 0;
 	margin: 0;
 	box-shadow: none;
 	border: none;
 }
+
 .toybox .controls {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 1em;
 	padding: 1em;
-	background-color: hsl(220, 16%, 32%);
-	color: white;
+	background-color: var(--code-border);
+	color: var(--b);
 	border-top: 0;
 }
 
@@ -145,9 +176,8 @@ kbd {
 }
 
 .card {
-	background-color: white;
+	background-color: var(--b);
 	border-radius: 0.3em;
 	padding: 1em;
 	box-shadow: var(--card-shadow);
-	border: 1px solid gray;
 }
