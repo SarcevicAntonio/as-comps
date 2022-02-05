@@ -40,8 +40,8 @@
 		if (window.innerWidth <= 1400) {
 			indexVisible = false;
 			await tick();
-			initial = false;
 		}
+		initial = false;
 	});
 
 	const condTrans = (node, args) => (initial ? null : args.trans(node, args));
