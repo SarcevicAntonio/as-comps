@@ -48,8 +48,10 @@
 		display: flex;
 		align-items: center;
 		gap: 0.5em;
-		overflow-y: visible;
 		overflow-x: auto;
+		/* hack: fix cutting shadows*/
+		padding: 10em;
+		margin: -10em;
 	}
 	li {
 		flex-shrink: 0;

@@ -15,7 +15,7 @@
 </script>
 
 <noscript>
-	{label}
+	<strong>{label}</strong>
 </noscript>
 
 <div style="display: {!$activeTab || $activeTab === label ? 'block' : 'none'}">
