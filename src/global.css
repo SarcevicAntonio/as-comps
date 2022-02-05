@@ -24,7 +24,7 @@ html {
 body {
 	max-width: 75ch;
 	margin: auto;
-	padding-top: 1px; /* collapsing margin hack */
+	padding-top: 1px; /* hack: fix collapsing margin */
 }
 
 :root {
