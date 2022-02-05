@@ -181,3 +181,7 @@ kbd {
 	padding: 1em;
 	box-shadow: var(--card-shadow);
 }
+
+.namespace {
+	opacity: initial !important;
+}
