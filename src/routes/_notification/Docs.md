@@ -19,7 +19,7 @@ visible.
 
 #### Notification position
 
-By default, the notifications will be displayed on the bottom center, or `'bottom'`. You can also place it to either `'top-left'` `'top'`, `'top-right'`, `'bottom-left'` or `'bottom-right'` by setting the `position` prop on the `<Notifications />` component.
+By default, the notifications will be displayed on the top right, i.e. `"top-right"`. You can also place it to either `"top-left"` `"top"`, `"bottom-left"`, `"bottom"`, or `"bottom-right"` by setting the `position` prop on the `<Notifications />` component.
 
 ```html
 <Notifications position="top-right" />

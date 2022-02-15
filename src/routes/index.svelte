@@ -1,10 +1,10 @@
 <script>
+	import IconMenu from '$internal/IconMenu.svelte';
 	import { onMount, tick } from 'svelte';
 	import { fly, slide } from 'svelte/transition';
 	import Docs from './Docs.md';
 	import DialogDemo from './_dialog/Demo.svelte';
 	import DialogDocs from './_dialog/Docs.md';
-	import IconMenu from './_internal/IconMenu.svelte';
 	import NotificationDemo from './_notification/Demo.svelte';
 	import NotificationDocs from './_notification/Docs.md';
 	import TabDemo from './_tabgroup/Demo.svelte';

@@ -1,7 +1,6 @@
 <script>
-	import TabGroup from '$lib/TabGroup/TabGroup.svelte';
-	import Tab from '$lib/TabGroup/Tab.svelte';
-	import Codesample from '../_internal/Codesample.svelte';
+	import Codesample from '$internal/Codesample.svelte';
+	import { Tab, TabGroup } from '$lib';
 </script>
 
 <section class="toybox">

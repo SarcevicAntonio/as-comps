@@ -1,12 +1,12 @@
 <script context="module" lang="ts">
-	export const notificationPosition: Writable<NotificationPosition> = writable('bottom');
+	export const notificationPosition: Writable<NotificationPosition> = writable('top-right');
 </script>
 
 <script lang="ts">
+	import Codesample from '$internal/Codesample.svelte';
+	import type { NotificationPosition } from '$lib';
 	import { notification } from '$lib';
-	import type { NotificationPosition } from '$lib/Notifications/Notifications.svelte';
 	import { Writable, writable } from 'svelte/store';
-	import Codesample from '../_internal/Codesample.svelte';
 	let msg = 'a notification';
 	let type: 'info' | 'warn' = undefined;
 	let removeAfter = undefined;

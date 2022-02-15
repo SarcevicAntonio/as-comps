@@ -13,23 +13,31 @@ export interface Notification {
 	action?: [label: string, callback: (...args: unknown[]) => unknown];
 }
 
-export interface notificationOptions {
+export interface NotificationOptions {
 	type?: Notification['type'];
 	removeAfter?: Notification['removeAfter'];
 	action?: Notification['action'];
 }
+
+export type NotificationPosition =
+	| 'top-left'
+	| 'top'
+	| 'top-right'
+	| 'bottom-left'
+	| 'bottom'
+	| 'bottom-right';
 
 export const notifications: Writable<Notification[]> = writable([]);
 
 /**
  *
  * @param msg Notification message, can be any HTML.
- * @param notificationOptions type, removeAfter, action
+ * @param NotificationOptions type, removeAfter, action
  * @returns id of Notification
  */
 export function notification(
 	msg: string,
-	{ type = 'info', removeAfter = 5000, action = undefined } = {} as notificationOptions
+	{ type = 'info', removeAfter = 5000, action = undefined } = {} as NotificationOptions
 ): string {
 	const id = uuidv4();
 

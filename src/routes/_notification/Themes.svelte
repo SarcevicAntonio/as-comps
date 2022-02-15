@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Notifications } from '$lib/index';
+	import { Notifications } from '$lib';
 	let themeIndex = 0;
 	let themes = [
 		`/* default theme */

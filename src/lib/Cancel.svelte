@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { Notification } from './Notifications/notificationStore';
-
 	export let type: Notification['type'] = 'info';
 
 	$: cssPropPrefix = `--as-notification-${type}-color`;
