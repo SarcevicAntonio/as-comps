@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Notifications } from '$lib/index';
+	import { Notifications } from '$lib';
 	let themeIndex = 0;
 	let themes = [
 		`/* default theme */
@@ -64,7 +64,7 @@
 	];
 </script>
 
-<h2 id="themes">Pre-Build Css Props Theme Ideas 🎨</h2>
+<h2>Pre-Build Css Props Theme Ideas 🎨</h2>
 
 <button
 	class="btn"

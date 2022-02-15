@@ -1,6 +1,6 @@
 <script>
-	import { notification, Dialog } from '$lib';
-	import Codesample from '../_internal/Codesample.svelte';
+	import Codesample from '$internal/Codesample.svelte';
+	import { Dialog, notification } from '$lib';
 
 	function deleteEntry() {
 		notification('Deleted entry', { type: 'warn' });
@@ -11,7 +11,7 @@
 	$: dirTriggerLabel = triggerLabel || 'Open Dialog';
 </script>
 
-<h3 id="demo">Demo</h3>
+<h3>Demo</h3>
 
 <section class="toybox">
 	<div class="demo">

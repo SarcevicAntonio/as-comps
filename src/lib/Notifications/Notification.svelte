@@ -1,8 +1,7 @@
 <script lang="ts">
 	import type { SvelteComponent } from 'svelte';
 	import { fade, fly, scale } from 'svelte/transition';
-	import type { NotificationPosition } from './Notifications.svelte';
-	import type { Notification } from './notificationStore';
+	import type { Notification, NotificationPosition } from './notificationStore';
 	import { removeNotification } from './notificationStore';
 
 	export let notification: Notification;
@@ -69,7 +68,6 @@
 		font-size: 1em;
 		padding: var(--as-notification-padding, 1em);
 		margin-top: 1em;
-		min-width: 300px;
 		max-width: calc(100vw - 2em);
 		border: var(--as-notification-border, 1px solid black);
 		border-radius: var(--as-notification-border-radius, 0.5em);

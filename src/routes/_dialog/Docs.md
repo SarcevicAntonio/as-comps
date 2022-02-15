@@ -2,6 +2,8 @@
 
 To **display a dialog**, import and place the `<Dialog></Dialog>` component inside a `.svelte` file. Place the dialog content between the tags.
 
+The dialog **handles focus** according to ARIA recommendations.
+
 ```html
 <script>
 	import { Dialog } from 'as-comps';

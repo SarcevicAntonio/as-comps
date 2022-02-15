@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { appendToBody, focusTrap } from '$lib';
 	import { fade, scale } from 'svelte/transition';
 	import Cancel from './Cancel.svelte';
 
@@ -8,10 +9,6 @@
 	export let triggerClass = '';
 	export let triggerLabel = 'Open Dialog';
 
-	function keydown(event: KeyboardEvent) {
-		if (event.key === 'Escape') dismiss();
-	}
-
 	function dismiss() {
 		if (!mandatory) open = false;
 	}
@@ -19,13 +16,13 @@
 	function toggle() {
 		open = !open;
 	}
-
-	export function bodyPortal(node: HTMLElement) {
-		document.querySelector('body').appendChild(node);
-	}
 </script>
 
-<svelte:body on:keydown={keydown} />
+<svelte:window
+	on:keydown={(evt) => {
+		evt.key === 'Escape' ? dismiss() : null;
+	}}
+/>
 
 {#if includedTrigger}
 	<button
@@ -39,9 +36,8 @@
 {/if}
 
 {#if open}
-	<div class="container" use:bodyPortal>
-		<div class="overlay" transition:fade on:click={dismiss} />
-		<div class="dialog" role="dialog" aria-labelledby="dialog-content" in:scale out:fade>
+	<dialog open class="container" use:appendToBody transition:fade on:click={dismiss} use:focusTrap>
+		<section class="dialog" aria-labelledby="dialog-content" in:scale out:fade>
 			{#if !mandatory}
 				<button class="close-btn" aria-label="Close Dialog or Dialog" on:click={dismiss}>
 					<Cancel />
@@ -55,14 +51,22 @@
 					</div>
 				{/if}
 			</div>
-		</div>
-	</div>
+		</section>
+	</dialog>
 {/if}
 
 <style lang="">
 	.container {
 		isolation: isolate;
 		position: absolute;
+	}
+	.container::after {
+		content: '';
+		z-index: -1;
+		position: fixed;
+		inset: 0;
+		background: var(--as-dialog-backdrop-background, hsl(0, 0%, 0%));
+		opacity: 0.8;
 	}
 	.dialog {
 		z-index: 1;
@@ -105,11 +109,5 @@
 	}
 	:global(.dialog-actions > button) {
 		flex-grow: 1;
-	}
-	.overlay {
-		z-index: -1;
-		position: fixed;
-		inset: 0;
-		background: var(--as-dialog-backdrop-background, hsla(0, 0%, 0%, 0.8));
 	}
 </style>

@@ -1,6 +1,7 @@
 ### Docs
 
 To create a TabGroup wrap `<Tab/>` components with a `<TabGroup/>`.
+The content of the tabs will still be rendered when JavaScript is disabled making it indexable and SSR compatible.
 
 ```html
 <TabGroup>

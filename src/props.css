@@ -1,0 +1,8 @@
+:root {
+	--card-shadow: 0 0.3px 2px rgb(0 0 0 / 2.8%), 0 1.1px 4.9px rgb(0 0 0 / 4%),
+		0 2.7px 9.3px rgb(0 0 0 / 5%), 0 5.9px 16.5px rgb(0 0 0 / 6%), 0 12.5px 30.9px rgb(0 0 0 / 7.2%),
+		0 32px 74px rgb(0 0 0 / 10%);
+
+	--button-shadow-hover: 0 0.3px 1.4px rgb(0 0 0 / 6.8%), 0 0.7px 3.5px rgb(0 0 0 / 9.8%),
+		0 1.4px 7.1px rgb(0 0 0 / 12.2%), 0 2.9px 14.6px rgb(0 0 0 / 15.2%), 0 8px 40px rgb(0 0 0 / 22%) !important;
+}

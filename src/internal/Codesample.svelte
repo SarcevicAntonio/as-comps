@@ -1,6 +1,5 @@
 <script>
-	import { notification } from '$lib/Notifications/notificationStore';
-
+	import { notification } from '$lib';
 	import Prism from 'prismjs';
 
 	export let lang = 'html';
