@@ -64,7 +64,7 @@
 	];
 </script>
 
-<h2 id="themes">Pre-Build Css Props Theme Ideas 🎨</h2>
+<h2>Pre-Build Css Props Theme Ideas 🎨</h2>
 
 <button
 	class="btn"

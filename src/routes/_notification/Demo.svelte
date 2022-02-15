@@ -17,7 +17,7 @@
 	}
 </script>
 
-<h3 id="demo">Demo</h3>
+<h3>Demo</h3>
 
 <section class="toybox">
 	<div class="demo">
