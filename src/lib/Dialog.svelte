@@ -36,7 +36,7 @@
 {/if}
 
 {#if open}
-	<dialog open on:click={dismiss} use:focusTrap use:appendToBody transition:fade class="container">
+	<dialog open on:click={dismiss} use:appendToBody use:focusTrap transition:fade class="container">
 		<section class="dialog" aria-labelledby="dialog-content" in:scale out:fade {...$$restProps}>
 			{#if !mandatory}
 				<button class="close-btn" aria-label="Close Dialog or Dialog" on:click={dismiss}>
