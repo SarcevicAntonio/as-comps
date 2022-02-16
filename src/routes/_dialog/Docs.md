@@ -10,8 +10,6 @@ To **display a dialog**, import and place the `<Dialog></Dialog>` component insi
 <dialog>Hello Dialog</dialog>
 ```
 
-The dialog **handles focus** according to ARIA recommendations.
-
 `{...$$restProps}` get spread to the underlying `<section>` element that shows the slot content.
 
 #### `includedTrigger` & `bind:open`
