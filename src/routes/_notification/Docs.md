@@ -17,6 +17,8 @@ or `src/pages/_layout.svelte` for Routify, like this:
 This is used to display the notifications, so it needs to be rendered wherever you want your notifications
 visible.
 
+`{...$$restProps}` get spread to the underlying `<ul>` element that shows the notifications.
+
 #### Notification position
 
 By default, the notifications will be displayed on the top right, i.e. `"top-right"`. You can also place it to either `"top-left"` `"top"`, `"bottom-left"`, `"bottom"`, or `"bottom-right"` by setting the `position` prop on the `<Notifications />` component.

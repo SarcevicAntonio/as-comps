@@ -13,7 +13,7 @@
 </script>
 
 {#if $notifications.length}
-	<ul class="as-notification-{position}" use:appendToBody>
+	<ul use:appendToBody class="as-notification-{position}" {...$$restProps}>
 		{#each $notifications as notification (notification.id)}
 			<li animate:flip>
 				<svelte:component this={notificationComponent} {notification} {cancelIcon} {position} />
