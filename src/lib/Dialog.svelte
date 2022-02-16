@@ -31,26 +31,24 @@
 			open = !open;
 		}}
 	>
-		<slot name="triggerLabel">{triggerLabel}</slot>
+		<slot name="trigger-label">{triggerLabel}</slot>
 	</button>
 {/if}
 
 {#if open}
-	<dialog open class="container" use:appendToBody transition:fade on:click={dismiss} use:focusTrap>
-		<section class="dialog" aria-labelledby="dialog-content" in:scale out:fade>
+	<dialog open on:click={dismiss} use:focusTrap use:appendToBody transition:fade class="container">
+		<section class="dialog" aria-labelledby="dialog-content" in:scale out:fade {...$$restProps}>
 			{#if !mandatory}
 				<button class="close-btn" aria-label="Close Dialog or Dialog" on:click={dismiss}>
 					<Cancel />
 				</button>
 			{/if}
-			<div id="dialog-content">
-				<slot {toggle} />
-				{#if $$slots.dialogActions}
-					<div class="dialog-actions">
-						<slot name="dialogActions" />
-					</div>
-				{/if}
-			</div>
+			<slot {toggle} />
+			{#if $$slots['dialog-actions']}
+				<div class="dialog-actions">
+					<slot name="dialog-actions" />
+				</div>
+			{/if}
 		</section>
 	</dialog>
 {/if}
@@ -86,14 +84,6 @@
 			0 15px 12px rgba(0, 0, 0, 0.22)
 		);
 		border-radius: var(--as-dialog-border-radius, 0.25em);
-	}
-	:global(#dialog-content > *:first-child) {
-		margin-top: 0;
-	}
-	:global(#dialog-content > *:last-child, #dialog-content > *:last-child, #dialog-content
-			> *:last-child
-			*) {
-		margin-bottom: 0;
 	}
 	.close-btn {
 		float: right;
