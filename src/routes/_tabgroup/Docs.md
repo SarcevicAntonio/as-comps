@@ -13,6 +13,10 @@ The content of the tabs will still be rendered when JavaScript is disabled makin
 </TabGroup>
 ```
 
+`{...$$restProps}` for `<TabGroup>` get spread to the underlying `<ul>` element that shows the different tab buttons.
+
+`{...$$restProps}` for `<Tab>` get spread to the underlying `<section>` element that displays the tab content.
+
 #### `triggerClass`
 
 You can pass in a CSS class to customize the look of the trigger buttons.

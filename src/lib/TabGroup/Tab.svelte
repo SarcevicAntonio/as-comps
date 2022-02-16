@@ -18,6 +18,6 @@
 	<strong>{label}</strong>
 </noscript>
 
-<div style="display: {!$activeTab || $activeTab === label ? 'block' : 'none'}">
+<section style="display: {!$activeTab || $activeTab === label ? 'block' : 'none'}" {...$$restProps}>
 	<slot />
-</div>
+</section>

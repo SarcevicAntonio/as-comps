@@ -22,7 +22,7 @@
 	});
 </script>
 
-<ul>
+<ul {...$$restProps}>
 	{#each tabs as label}
 		<li>
 			<button
