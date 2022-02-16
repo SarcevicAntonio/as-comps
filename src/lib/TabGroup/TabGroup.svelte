@@ -5,6 +5,7 @@
 <script lang="ts">
 	import { setContext } from 'svelte';
 	import { writable } from 'svelte/store';
+	import { arrowKeyFocus } from '$lib';
 
 	interface Tab {
 		label: string;
@@ -38,7 +39,7 @@
 </script>
 
 {#if !accordion}
-	<ul {...$$restProps} role="tablist">
+	<ul {...$$restProps} role="tablist" use:arrowKeyFocus>
 		{#each tabs as tab}
 			<li
 				role="tab"
