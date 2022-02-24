@@ -37,7 +37,7 @@
 {/if}
 
 {#if open}
-	<dialog open on:click={dismiss} use:appendToBody use:focusTrap transition:fade class="container">
+	<dialog open use:appendToBody use:focusTrap transition:fade class="container">
 		<section class="dialog" aria-labelledby="dialog-content" in:scale out:fade {...$$restProps}>
 			{#if !mandatory}
 				<button class="close-btn" aria-label="Close Dialog or Dialog" on:click={dismiss}>
@@ -51,6 +51,7 @@
 				</div>
 			{/if}
 		</section>
+		<div on:click={dismiss} class="backdrop" />
 	</dialog>
 {/if}
 
@@ -59,8 +60,7 @@
 		isolation: isolate;
 		position: absolute;
 	}
-	.container::after {
-		content: '';
+	.backdrop {
 		z-index: -1;
 		position: fixed;
 		inset: 0;
