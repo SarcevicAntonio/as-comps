@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { appendToBody, focusTrap } from '$lib';
+	import appendToBody from './Actions/appendToBody';
+	import { focusTrap } from './Actions/focus';
 	import { fade, scale } from 'svelte/transition';
 	import Cancel from './Cancel.svelte';
 
