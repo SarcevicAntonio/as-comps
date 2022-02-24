@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { appendToBody } from '$lib';
+	import appendToBody from '../actions/appendToBody';
 	import type { SvelteComponent } from 'svelte';
 	import { flip } from 'svelte/animate';
 	import Cancel from '../Cancel.svelte';
@@ -13,7 +13,7 @@
 </script>
 
 {#if $notifications.length}
-	<ul class="as-notification-{position}" use:appendToBody>
+	<ul use:appendToBody class="as-notification-{position}" {...$$restProps}>
 		{#each $notifications as notification (notification.id)}
 			<li animate:flip>
 				<svelte:component this={notificationComponent} {notification} {cancelIcon} {position} />

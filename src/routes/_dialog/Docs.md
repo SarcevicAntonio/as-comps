@@ -1,8 +1,6 @@
 ### Docs
 
-To **display a dialog**, import and place the `<Dialog></Dialog>` component inside a `.svelte` file. Place the dialog content between the tags.
-
-The dialog **handles focus** according to ARIA recommendations.
+To **display a dialog**, import and place the `<Dialog></Dialog>` component inside a `.svelte` file. Slot the dialog content between the tags.
 
 ```html
 <script>
@@ -11,6 +9,8 @@ The dialog **handles focus** according to ARIA recommendations.
 
 <dialog>Hello Dialog</dialog>
 ```
+
+`{...$$restProps}` get spread to the underlying `<section>` element that shows the slot content.
 
 #### `includedTrigger` & `bind:open`
 
@@ -36,16 +36,16 @@ If you want to override the default trigger label or class you can pass in the p
 <dialog triggerLabel="my dialog" triggerClass="btn">Hello Dialog</dialog>
 ```
 
-Or you can pass in a `slot="triggerLabel"`
+Or you can pass in a `slot="trigger-label"`
 
 ```html
 <dialog>
-	<svelte:fragment slot="triggerLabel">my dialog</svelte:fragment>
+	<svelte:fragment slot="trigger-label">my dialog</svelte:fragment>
 	Hello Dialog
 </dialog>
 ```
 
-#### `let:toggle` & `slot="dialogActions"`
+#### `let:toggle` & `slot="dialog-actions"`
 
 When creating a confirm dialog, you need to toggle the opening state at different places. For this, a `toggle()` function is provided via slot props. Simply add `let:toggle` to the `<Dialog>` tag and call it when appropriate.
 

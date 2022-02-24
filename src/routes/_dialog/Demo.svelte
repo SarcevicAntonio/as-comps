@@ -18,7 +18,7 @@
 		<Dialog let:toggle {mandatory} triggerLabel={dirTriggerLabel} triggerClass="btn">
 			<h2 data-test="dialog-content">Are you sure you want to delete the entry?</h2>
 			<p>This action can not be reversed.</p>
-			<svelte:fragment slot="dialogActions">
+			<svelte:fragment slot="dialog-actions">
 				<button class="btn" on:click={toggle} data-test="dialog-close">No</button>
 				<button
 					class="btn"
@@ -51,15 +51,14 @@
 		}>
 	<h2>Are you sure you want to delete the entry?</h2>
 	<p>This action can not be reversed.</p>
-	<svelte:fragment slot="dialogActions">
-		<button class="btn" on:click={toggle}>No</button>
+	<svelte:fragment slot="dialog-actions">
+		<button on:click={toggle}>No</button>
 		<button
-			class="btn"
 			on:click="{() => {
 				deleteEntry();
 				toggle();
 			}}"
-			>
+		>
 			Yes
 		</button>
 	</svelte:fragment>

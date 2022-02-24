@@ -2,41 +2,64 @@
 	export const key = Symbol();
 </script>
 
-<script>
+<script lang="ts">
 	import { setContext } from 'svelte';
 	import { writable } from 'svelte/store';
+	import { arrowKeyFocus } from '../actions/focus';
 
-	let tabs = [];
-	const activeTab = writable('');
+	interface Tab {
+		label: string;
+		controlsId: string;
+		labelledbyId: string;
+	}
+
+	let tabs: Tab[] = [];
+	const activeTab = writable({});
+
+	export let accordion = false;
+	const accordionStore = writable(accordion);
+	$: $accordionStore = accordion;
+
 	export let triggerClass = '';
+	const triggerClassStore = writable(triggerClass);
+	$: $triggerClassStore = triggerClass;
 
 	setContext(key, {
-		addTab(label) {
-			if (!tabs.length) activeTab.set(label);
-			tabs = [...tabs, label];
+		addTab(tab: Tab) {
+			if (!tabs.length) activeTab.set(tab);
+			tabs = [...tabs, tab];
 		},
-		removeTab(label) {
-			tabs = tabs.filter((entry) => entry !== label);
+		removeTab(tab: Tab) {
+			tabs = tabs.filter((entry) => entry !== tab);
 		},
 		activeTab,
+		accordionStore,
+		triggerClassStore,
 	});
 </script>
 
-<ul>
-	{#each tabs as label}
-		<li>
-			<button
-				on:click={() => {
-					$activeTab = label;
-				}}
-				class:active={$activeTab === label}
-				class={triggerClass}
+{#if !accordion}
+	<ul {...$$restProps} role="tablist" use:arrowKeyFocus>
+		{#each tabs as tab}
+			<li
+				role="tab"
+				id={tab.labelledbyId}
+				aria-controls={tab.controlsId}
+				aria-selected={$activeTab === tab}
 			>
-				{label}
-			</button>
-		</li>
-	{/each}
-</ul>
+				<button
+					on:click={() => {
+						$activeTab = tab;
+					}}
+					class:active={$activeTab === tab}
+					class={triggerClass}
+				>
+					{tab.label}
+				</button>
+			</li>
+		{/each}
+	</ul>
+{/if}
 
 <slot />
 

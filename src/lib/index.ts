@@ -1,5 +1,5 @@
 export { default as appendToBody } from './actions/appendToBody';
-export { default as focusTrap } from './actions/focusTrap';
+export { focusTrap, arrowKeyFocus } from './actions/focus';
 export { default as Dialog } from './Dialog.svelte';
 export { default as Notifications } from './Notifications/Notifications.svelte';
 export { notification, removeNotification } from './Notifications/notificationStore';
