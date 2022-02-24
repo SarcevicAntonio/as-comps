@@ -1,5 +1,5 @@
 <script lang="ts">
-	import appendToBody from '../Actions/appendToBody';
+	import appendToBody from '../actions/appendToBody';
 	import type { SvelteComponent } from 'svelte';
 	import { flip } from 'svelte/animate';
 	import Cancel from '../Cancel.svelte';

@@ -5,7 +5,7 @@
 <script lang="ts">
 	import { setContext } from 'svelte';
 	import { writable } from 'svelte/store';
-	import { arrowKeyFocus } from '../Actions/focus';
+	import { arrowKeyFocus } from '../actions/focus';
 
 	interface Tab {
 		label: string;
