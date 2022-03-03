@@ -101,4 +101,7 @@
 	:global(.dialog-actions > button) {
 		flex-grow: 1;
 	}
+	dialog {
+		all: unset;
+	}
 </style>
