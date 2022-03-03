@@ -14,7 +14,7 @@
 	let initial = true;
 
 	onMount(async () => {
-		if (window.innerWidth <= 1400) {
+		if (window.innerWidth <= 1800) {
 			indexVisible = false;
 			await tick();
 		}
