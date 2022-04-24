@@ -1,3 +1,5 @@
+export { default as clickOutside } from './actions/clickOutside';
+
 export { default as appendToBody } from './actions/appendToBody';
 export { focusTrap, arrowKeyFocus } from './actions/focus';
 export { default as Dialog } from './Dialog.svelte';
@@ -10,3 +12,4 @@ export type {
 } from './Notifications/notificationStore';
 export { default as Tab } from './TabGroup/Tab.svelte';
 export { default as TabGroup } from './TabGroup/TabGroup.svelte';
+export { default as Input } from './Input.svelte';
