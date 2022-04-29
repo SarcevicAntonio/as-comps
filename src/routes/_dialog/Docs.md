@@ -71,7 +71,7 @@ Above you can see the usage for `slot="dialogActions"`. This can be used to disp
 
 #### `mandatory`
 
-By default the dialog is dismissable (not mandatory) and will close on <kbd>ESC</kbd>, by clicking outside or by clicking the `x`-Mark button. If you pass in the `mandatory` prop the dialog is non-dismissable and won't close unless you call `let:toggle` or change the value of `bind:open`.
+By default the dialog is dismissable (not mandatory) and will close on <kbd>ESC</kbd>, by clicking outside or by clicking the `x`-mark button. If you pass in the `mandatory` prop the dialog is non-dismissable and won't close unless you call `let:toggle` or change the value of `bind:open`.
 
 ```svelte
 <Dialog let:toggle mandatory>
@@ -81,3 +81,7 @@ By default the dialog is dismissable (not mandatory) and will close on <kbd>ESC<
 	</svelte:fragment>
 </Dialog>
 ```
+
+### `noCloseButton`
+
+If the modal isn't mandatory, but you still want to hide the close button for some reason you can pass this boolean prop to hide the `x-`-mark button.

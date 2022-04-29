@@ -7,6 +7,7 @@
 	}
 
 	let mandatory = false;
+	let noCloseButton = false;
 	let triggerLabel = 'Delete Entry';
 	$: dirTriggerLabel = triggerLabel || 'Open Dialog';
 </script>
@@ -15,7 +16,13 @@
 
 <section class="toybox">
 	<div class="demo">
-		<Dialog let:toggle {mandatory} triggerLabel={dirTriggerLabel} triggerClass="btn">
+		<Dialog
+			let:toggle
+			{mandatory}
+			{noCloseButton}
+			triggerLabel={dirTriggerLabel}
+			triggerClass="btn"
+		>
 			<h2 data-test="dialog-content">Are you sure you want to delete the entry?</h2>
 			<p>This action can not be reversed.</p>
 			<svelte:fragment slot="dialog-actions">
@@ -41,14 +48,21 @@
 			</select>
 		</label>
 		<label>
+			<span>noCloseButton</span>
+			<select bind:value={noCloseButton} data-test="dialog-noCloseButton-select">
+				<option value={true}>true</option>
+				<option value={false}>false</option>
+			</select>
+		</label>
+		<label>
 			<span>Trigger Label</span>
 			<input type="text" bind:value={triggerLabel} data-test="dialog-trigger-label" />
 		</label>
 	</div>
 	<Codesample
 		code={`<Dialog let:toggle${mandatory ? ' mandatory' : ''}${
-			triggerLabel ? ` triggerLabel="${triggerLabel}"` : ''
-		}>
+			noCloseButton ? ' noCloseButton' : ''
+		}${triggerLabel ? ` triggerLabel="${triggerLabel}"` : ''}>
 	<h2>Are you sure you want to delete the entry?</h2>
 	<p>This action can not be reversed.</p>
 	<svelte:fragment slot="dialog-actions">

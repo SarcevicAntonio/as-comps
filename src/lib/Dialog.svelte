@@ -9,6 +9,7 @@
 	export let mandatory = false;
 	export let triggerClass = '';
 	export let triggerLabel = 'Open Dialog';
+	export let noCloseButton = false;
 
 	function dismiss() {
 		if (!mandatory) open = false;
@@ -39,7 +40,7 @@
 {#if open}
 	<dialog open use:appendToBody use:focusTrap transition:fade class="container">
 		<section class="dialog" aria-labelledby="dialog-content" in:scale out:fade {...$$restProps}>
-			{#if !mandatory}
+			{#if !(mandatory || noCloseButton)}
 				<button class="close-btn" aria-label="Close Dialog or Dialog" on:click={dismiss}>
 					<Cancel />
 				</button>
