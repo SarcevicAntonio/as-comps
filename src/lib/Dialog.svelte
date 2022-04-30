@@ -101,14 +101,14 @@
 		max-width: var(--max-width, calc(100vw - 4em));
 		overflow: auto;
 		background: var(--background, white);
-		color: var(--color, black);
 		padding: 1em;
 		box-shadow: var(--shadow, 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22));
 		border-radius: var(--border-radius, 0.25em);
 	}
 	.close-btn {
-		float: right;
-		float: inline-end;
+		position: absolute;
+		top: 1em;
+		right: 1em;
 		aspect-ratio: 1/1;
 		border-radius: 999999px;
 		margin: 0;
