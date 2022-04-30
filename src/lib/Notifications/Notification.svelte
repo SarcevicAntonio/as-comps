@@ -69,13 +69,13 @@
 		padding: var(--as-notification-padding, 1em);
 		margin-top: 1em;
 		max-width: calc(100vw - 2em);
-		border: var(--as-notification-border, 1px solid black);
-		border-radius: var(--as-notification-border-radius, 0.5em);
-		color: var(--as-notification-color, black);
-		backdrop-filter: var(--as-notification-backdrop-filter, none);
-		-webkit-backdrop-filter: var(--as-notification-backdrop-filter, none);
+		border: var(--border, 1px solid black);
+		border-radius: var(--border-radius, 0.5em);
+		color: var(--color, black);
+		backdrop-filter: var(--backdrop-filter, none);
+		-webkit-backdrop-filter: var(--backdrop-filter, none);
 		box-shadow: var(
-			--as-notification-shadow,
+			--shadow,
 			0 0.3px 1.4px rgba(0, 0, 0, 0.068),
 			0 0.7px 3.5px rgba(0, 0, 0, 0.098),
 			0 1.4px 7.1px rgba(0, 0, 0, 0.122),
@@ -87,22 +87,24 @@
 	div button {
 		display: flex;
 		margin-left: 2em;
-		border-radius: var(--as-notification-btn-border-radius, 999999999px);
-		padding: var(--as-notification-btn-padding, 0.45em);
-		border: var(--as-notification-btn-border, 1px solid black);
-		background: var(--as-notification-btn-background, white);
+		border-radius: var(--btn-border-radius, 999999999px);
+		padding: var(--btn-padding, 0.3em);
+		font-size: var(--btn-font-size, 1em);
+		border: var(--btn-border, 1px solid black);
+		background: var(--btn-background, white);
+		color: inherit;
 		cursor: pointer;
 	}
 
 	.info {
-		color: var(--as-notification-info-color, var(--as-notification-color, black));
-		border-color: var(--as-notification-info-border-color, #2786cb);
-		background: var(--as-notification-info-background, #abd2ef);
+		color: var(--info-color, var(--color, black));
+		border-color: var(--info-border-color, #2786cb);
+		background: var(--info-background, #abd2ef);
 	}
 
 	.warn {
-		color: var(--as-notification-warn-color, var(--as-notification-color, black));
-		border-color: var(--as-notification-warn-border-color, #c92626);
-		background: var(--as-notification-warn-background, #efa9a9);
+		color: var(--warn-color, var(--color, black));
+		border-color: var(--warn-border-color, #c92626);
+		background: var(--warn-background, #efa9a9);
 	}
 </style>

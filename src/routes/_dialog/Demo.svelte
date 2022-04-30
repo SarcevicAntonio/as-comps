@@ -1,6 +1,7 @@
 <script>
 	import Codesample from '$internal/Codesample.svelte';
 	import { Dialog, notification } from '$lib';
+	import { fly, slide } from 'svelte/transition';
 
 	function deleteEntry() {
 		notification('Deleted entry', { type: 'warn' });
@@ -77,5 +78,34 @@
 		</button>
 	</svelte:fragment>
 </Dialog>`}
+	/>
+</section>
+
+<h3>Styled Dialog</h3>
+
+<section class="toybox">
+	<div class="demo">
+		<Dialog
+			dialogIn={fly}
+			dialogInOptions={{ x: 500 }}
+			--border-radius="0"
+			--width="100vw"
+			--max-width="calc(100vw - 2em)"
+			--height="100vh"
+			--max-height="calc(100vh - 2em)"
+			triggerClass="btn"
+		/>
+	</div>
+
+	<Codesample
+		code={`<Dialog
+	dialogIn={fly}
+	dialogInOptions={{ x: 500 }}
+	--border-radius="0"
+	--width="100vw"
+	--max-width="calc(100vw - 2em)"
+	--height="100vh"
+	--max-height="calc(100vh - 2em)"
+/>`}
 	/>
 </section>
