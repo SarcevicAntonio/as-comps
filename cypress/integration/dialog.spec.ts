@@ -11,7 +11,9 @@ beforeEach(() => {
 it('can display simple dialog', () => {
 	cy.contains(dialogTriggerLabel).click();
 	dialogContentShould('exist');
-	cy.getBySel('dialog-content').type('{esc}');
+	cy.getBySel('dialog-content').trigger('keydown', {
+		key: 'Escape',
+	});
 	cy.wait(500);
 	dialogContentShould('not.exist');
 });
@@ -19,7 +21,9 @@ it('can display simple dialog', () => {
 it('can display mandatory dialog', () => {
 	cy.getBySel('dialog-mandatory-select').select('true');
 	cy.contains(dialogTriggerLabel).click();
-	cy.getBySel('dialog-content').type('{esc}');
+	cy.getBySel('dialog-content').trigger('keydown', {
+		key: 'Escape',
+	});
 	cy.wait(500);
 	dialogContentShould('exist');
 	cy.getBySel('dialog-close').click();
