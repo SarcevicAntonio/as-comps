@@ -14,6 +14,9 @@ const config = {
 
 	kit: {
 		adapter: staticAdapter(),
+		prerender: {
+			default: true,
+		},
 		vite: {
 			resolve: {
 				alias: {
