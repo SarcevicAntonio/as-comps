@@ -120,7 +120,7 @@
 	--as-dialog-border-radius="0"
 	--as-dialog-width="calc(100% - 2em)"
 	--as-dialog-max-width="800px"
-	--as-dialog-height="100vh"
+	--as-dialog-height="100%"
 	--as-dialog-max-height="calc(100% - 2em)"
 	>
 	<h1>This is a side pane</h1>
