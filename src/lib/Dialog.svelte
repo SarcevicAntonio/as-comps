@@ -1,7 +1,7 @@
 <script lang="ts">
+	import { fade, scale } from 'svelte/transition';
 	import appendToBody from './actions/appendToBody';
 	import { focusTrap } from './actions/focus';
-	import { fade, scale } from 'svelte/transition';
 	import Cancel from './Cancel.svelte';
 
 	export let open = false;
@@ -86,48 +86,59 @@
 		z-index: -1;
 		position: fixed;
 		inset: 0;
-		background: var(--backdrop-background, hsl(0, 0%, 0%));
-		opacity: 0.8;
+		background: var(--as-dialog-backdrop-background, hsl(0, 0%, 0%));
+		opacity: var(--as-dialog-backdrop-opacity, 0.8);
 	}
 	.dialog {
 		z-index: 1;
 		position: fixed;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		height: var(--height, auto);
-		max-height: var(--max-height, calc(100vh - 4em));
-		width: var(--width, fit-content);
-		max-width: var(--max-width, calc(100vw - 4em));
-		overflow: auto;
-		background: var(--background, white);
-		padding: 1em;
-		box-shadow: var(--shadow, 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22));
-		border-radius: var(--border-radius, 0.25em);
+		top: var(--as-dialog-top, 50%);
+		right: var(--as-dialog-right, auto);
+		bottom: var(--as-dialog-bottom, auto);
+		left: var(--as-dialog-left, 50%);
+		transform: var(--as-dialog-transform, translate(-50%, -50%));
+		height: var(--as-dialog-height, auto);
+		max-height: var(--as-dialog-max-height, calc(100vh - 4em));
+		width: var(--as-dialog-width, fit-content);
+		max-width: var(--as-dialog-max-width, calc(100vw - 4em));
+		overflow: var(--as-dialog-overflow, auto);
+		background: var(--as-dialog-background, white);
+		padding: var(--as-dialog-padding, 1em);
+		box-shadow: var(
+			--as-dialog-shadow,
+			0 19px 38px rgba(0, 0, 0, 0.3),
+			0 15px 12px rgba(0, 0, 0, 0.22)
+		);
+		border-radius: var(--as-dialog-border-radius, 0.25em);
 	}
 	.close-btn {
 		position: absolute;
-		top: 1em;
-		right: 1em;
-		aspect-ratio: 1/1;
-		border-radius: 999999px;
-		margin: 0;
-		padding: var(--btn-padding, 0.3em);
-		display: grid;
-		place-items: center;
-		font-size: var(--close-btn-font-size, 1em);
-		background: var(--close-btn-background, var(--background, white));
-		color: var(--close-btn-color, var(--color, black));
-		border: var(--close-btn-border, 1px solid black);
+		top: var(--as-dialog--close-btn-top, 1em);
+		right: var(--as-dialog--close-btn-right, 1em);
+		bottom: var(--as-dialog--close-btn-bottom, auto);
+		left: var(--as-dialog--close-btn-left, auto);
+		aspect-ratio: var(--as-dialog--close-btn-aspect-ratio, 1/1);
+		border-radius: var(--as-dialog--close-btn-border-radius, 999999px);
+		margin: var(--as-dialog--close-btn-margin, 0);
+		padding: var(--as-dialog--close-btn-padding, 0.3em);
+		display: var(--as-dialog--close-btn-display, grid);
+		place-items: var(--as-dialog--close-btn-place-items, center);
+		font-size: var(--as-dialog--close-btn-font-size, 1em);
+		background: var(--as-dialog--close-btn-background, var(--as-dialog-background, white));
+		color: var(--as-dialog--close-btn-color, var(--as-dialog-color, black));
+		border: var(--as-dialog--close-btn-border, 1px solid black);
 	}
+
 	.dialog-actions {
-		display: flex;
-		justify-content: space-between;
-		gap: 1em;
+		display: var(--as-dialog--actions-display, flex);
+		justify-content: var(--as-dialog--actions-justify-content, space-between);
+		gap: var(--as-dialog--actions-gap, 1em);
 	}
+
 	:global(.dialog-actions > button) {
-		flex-grow: 1;
+		flex-grow: var(--as-dialog--actions--child-button-flex-grow, 1);
 	}
+
 	dialog {
 		all: unset;
 	}

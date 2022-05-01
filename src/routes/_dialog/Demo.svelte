@@ -86,26 +86,49 @@
 <section class="toybox">
 	<div class="demo">
 		<Dialog
+			triggerClass="btn"
+			triggerLabel="Dialog as Side Pane"
 			dialogIn={fly}
 			dialogInOptions={{ x: 500 }}
-			--border-radius="0"
-			--width="100vw"
-			--max-width="calc(100vw - 2em)"
-			--height="100vh"
-			--max-height="calc(100vh - 2em)"
-			triggerClass="btn"
-		/>
+			--as-dialog-left="auto"
+			--as-dialog-right="0"
+			--as-dialog-transform="translateY(-50%)"
+			--as-dialog-border-radius="0"
+			--as-dialog-width="calc(100% - 2em)"
+			--as-dialog-max-width="800px"
+			--as-dialog-height="100%"
+			--as-dialog-max-height="calc(100% - 2em)"
+		>
+			<h1>This is a side pane</h1>
+			<p>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus rem non sunt! Id
+				necessitatibus veritatis debitis est tempora iure esse. Nisi, dicta alias nobis velit libero
+				deleniti corporis nihil? Eum.
+			</p>
+		</Dialog>
 	</div>
 
 	<Codesample
 		code={`<Dialog
+	triggerClass="btn"
+	triggerLabel="Dialog as Side Pane"
 	dialogIn={fly}
 	dialogInOptions={{ x: 500 }}
-	--border-radius="0"
-	--width="100vw"
-	--max-width="calc(100vw - 2em)"
-	--height="100vh"
-	--max-height="calc(100vh - 2em)"
-/>`}
+	--as-dialog-left="auto"
+	--as-dialog-right="0"
+	--as-dialog-transform="translateY(-50%)"
+	--as-dialog-border-radius="0"
+	--as-dialog-width="calc(100% - 2em)"
+	--as-dialog-max-width="800px"
+	--as-dialog-height="100vh"
+	--as-dialog-max-height="calc(100% - 2em)"
+	>
+	<h1>This is a side pane</h1>
+	<p>
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus rem non sunt! Id
+		necessitatibus veritatis debitis est tempora iure esse. Nisi, dicta alias nobis velit libero
+		deleniti corporis nihil? Eum.
+	</p>
+</Dialog>`}
 	/>
 </section>
