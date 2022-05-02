@@ -22,22 +22,28 @@
 	export let dialogOutOptions = transitionOptions;
 
 	function dismiss() {
-		if (!mandatory) open = false;
+		if (mandatory) return;
+		open = false;
+		buttonRef.focus();
 	}
 
 	function toggle() {
 		open = !open;
+		buttonRef.focus();
 	}
+
+	let buttonRef: HTMLElement;
 </script>
 
 <svelte:window
 	on:keydown={(evt) => {
-		evt.key === 'Escape' ? dismiss() : null;
+		if (open && evt.key === 'Escape') dismiss();
 	}}
 />
 
 {#if includedTrigger}
 	<button
+		bind:this={buttonRef}
 		class={triggerClass}
 		on:click={() => {
 			open = !open;

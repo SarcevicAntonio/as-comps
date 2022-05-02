@@ -1,7 +1,7 @@
 <script>
 	import Codesample from '$internal/Codesample.svelte';
 	import { Dialog, notification } from '$lib';
-	import { fly, slide } from 'svelte/transition';
+	import { fly } from 'svelte/transition';
 
 	function deleteEntry() {
 		notification('Deleted entry', { type: 'warn' });
