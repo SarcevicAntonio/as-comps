@@ -18,14 +18,16 @@ To **display a dialog**, import and place the `<Dialog></Dialog>` component insi
 
 You can also provide your own trigger if you pass `includedTrigger={false}` to the component and bind the `open` prop to control the opening logic.
 
+Just be sure to pass in the `buttonRef` so the Dialog can focus it when its closed.
+
 ```svelte
 <script>
 	let dialogOpen = false;
 </script>
 
-<button on:click={() => (dialogOpen = !dialogOpen)}>toggle dialog</button>
+<button bind:this={buttonRef} on:click={() => (dialogOpen = !dialogOpen)}>toggle dialog</button>
 
-<Dialog includedTrigger={false} bind:open={dialogOpen}>Hello Dialog</Dialog>
+<Dialog includedTrigger={false} {buttonRef} bind:open={dialogOpen}>Hello Dialog</Dialog>
 ```
 
 #### `triggerLabel` & `triggerClass`

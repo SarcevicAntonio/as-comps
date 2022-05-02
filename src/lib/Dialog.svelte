@@ -22,17 +22,15 @@
 	export let dialogOutOptions = transitionOptions;
 
 	function dismiss() {
-		if (mandatory) return;
-		open = false;
-		buttonRef.focus();
+		if (!mandatory) toggle();
 	}
 
 	function toggle() {
 		open = !open;
-		buttonRef.focus();
+		if (buttonRef) buttonRef.focus();
 	}
 
-	let buttonRef: HTMLElement;
+	export let buttonRef: HTMLElement = undefined;
 </script>
 
 <svelte:window

@@ -11,6 +11,9 @@
 	let noCloseButton = false;
 	let triggerLabel = 'Delete Entry';
 	$: dirTriggerLabel = triggerLabel || 'Open Dialog';
+
+	let dialogOpen = false;
+	let buttonRef;
 </script>
 
 <h3>Demo</h3>
@@ -107,7 +110,6 @@
 			</p>
 		</Dialog>
 	</div>
-
 	<Codesample
 		code={`<Dialog
 	triggerClass="btn"
@@ -130,5 +132,20 @@
 		deleniti corporis nihil? Eum.
 	</p>
 </Dialog>`}
+	/>
+</section>
+
+<h3>Custom Trigger</h3>
+
+<section class="toybox">
+	<div class="demo">
+		<button bind:this={buttonRef} on:click={() => (dialogOpen = !dialogOpen)}>toggle dialog</button>
+		<Dialog includedTrigger={false} {buttonRef} bind:open={dialogOpen}>
+			<h1>Hello Dialog</h1>
+		</Dialog>
+	</div>
+	<Codesample
+		code={`<button bind:this={buttonRef} on:click="{() => (dialogOpen = !dialogOpen)}">toggle dialog</button>
+<Dialog includedTrigger={false} {buttonRef} bind:open={dialogOpen}>Hello Dialog</Dialog>`}
 	/>
 </section>
