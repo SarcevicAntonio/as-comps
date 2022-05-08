@@ -14,6 +14,8 @@
 
 	let dialogOpen = false;
 	let buttonRef;
+
+	let showDestroyDialogButton = true;
 </script>
 
 <h3>Demo</h3>
@@ -149,3 +151,17 @@
 <Dialog includedTrigger={false} {buttonRef} bind:open={dialogOpen}>Hello Dialog</Dialog>`}
 	/>
 </section>
+
+<h4>Destroy</h4>
+
+{#if showDestroyDialogButton}
+	<Dialog>
+		<button
+			on:click={() => {
+				showDestroyDialogButton = false;
+			}}
+		>
+			destroy dialog
+		</button>
+	</Dialog>
+{/if}

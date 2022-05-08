@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onDestroy } from 'svelte';
 	import { fade, scale } from 'svelte/transition';
 	import appendToBody from './actions/appendToBody';
 	import { focusTrap } from './actions/focus';
@@ -31,6 +32,10 @@
 	}
 
 	export let buttonRef: HTMLElement = undefined;
+
+	onDestroy(() => {
+		open = false;
+	});
 </script>
 
 <svelte:window
