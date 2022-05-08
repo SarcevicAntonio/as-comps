@@ -1,3 +1,5 @@
+import type { actionReturn } from './types';
+
 const focusableSelectors = ['a', 'button', 'input', 'textarea', 'select', 'details', '[tabindex]'];
 
 function getFocusable(element: HTMLElement) {
@@ -6,7 +8,7 @@ function getFocusable(element: HTMLElement) {
 	);
 }
 
-export function focusTrap(element: HTMLElement): { destroy(): void } {
+export function focusTrap(element: HTMLElement): actionReturn {
 	let focusable = getFocusable(element);
 	focusable[0].focus();
 

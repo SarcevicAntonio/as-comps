@@ -1,7 +1,9 @@
+import type { actionReturn } from './types';
+
 export default function clickOutside(
 	node: Node,
 	{ enabled: initialEnabled, func }: { enabled: boolean; func: (node: Node) => unknown }
-): { update: ({ enabled }: { enabled: boolean }) => void; destroy: () => void } {
+): actionReturn {
 	const handleOutsideClick = (event: MouseEvent) => {
 		if (node.contains(event.target as HTMLElement)) return;
 		event.stopPropagation();
