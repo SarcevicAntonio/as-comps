@@ -12,4 +12,4 @@ export type {
 } from './Notifications/notificationStore';
 export { default as Tab } from './TabGroup/Tab.svelte';
 export { default as TabGroup } from './TabGroup/TabGroup.svelte';
-export { default as Input } from './Input.svelte';
+export { default as Input } from './Form/Input.svelte';

@@ -4,8 +4,14 @@ import NotificationDemo from './_notification/Demo.svelte';
 import NotificationDocs from './_notification/Docs.md';
 import TabDemo from './_tabgroup/Demo.svelte';
 import TabDocs from './_tabgroup/Docs.md';
+import InputDemo from './_input/Demo.svelte';
 
 const comps = [
+	{
+		id: 'input',
+		title: '🔡 Input',
+		comps: [InputDemo],
+	},
 	{
 		id: 'dialog',
 		title: '🔲 Dialog',

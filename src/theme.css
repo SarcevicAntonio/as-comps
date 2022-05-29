@@ -1,0 +1,12 @@
+:root {
+	--md-on-surface: rgba(32, 26, 27, 1);
+	--md-surface-variant: rgba(243, 221, 225, 1);
+	--md-on-surface-variant: rgba(81, 67, 70, 1);
+	--md-outline: rgba(131, 115, 118, 1);
+	--md-primary: rgba(153, 64, 94, 1);
+	--md-body--small: 0.75rem;
+	--md-body--large: 1rem;
+	--md-error: rgba(255, 180, 169, 1);
+	--md-on-secondary-container--opacity-008: rgba(255, 217, 225, 0.07999999821186066);
+	--md-on-surface--opacity-012: rgba(235, 224, 225, 0.11999999731779099);
+}
