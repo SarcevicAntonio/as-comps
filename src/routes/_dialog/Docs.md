@@ -87,3 +87,7 @@ By default the dialog is dismissable (not mandatory) and will close on <kbd>ESC<
 ### `noCloseButton`
 
 If the modal isn't mandatory, but you still want to hide the close button for some reason you can pass this boolean prop to hide the `x-`-mark button.
+
+### `on:dismiss`
+
+If the modal isn't mandatory, you can listen to a dismiss via `on:dismiss`

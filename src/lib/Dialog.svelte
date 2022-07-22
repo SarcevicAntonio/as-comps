@@ -1,9 +1,10 @@
 <script lang="ts">
-	import { onDestroy } from 'svelte';
+	import { createEventDispatcher, onDestroy } from 'svelte';
 	import { fade, scale } from 'svelte/transition';
 	import appendToBody from './actions/appendToBody';
 	import { focusTrap } from './actions/focus';
 	import Cancel from './Cancel.svelte';
+	const dispatch = createEventDispatcher();
 
 	export let open = false;
 	export let includedTrigger = true;
@@ -23,7 +24,9 @@
 	export let dialogOutOptions = transitionOptions;
 
 	function dismiss() {
-		if (!mandatory) toggle();
+		if (mandatory) return;
+		dispatch('dismiss');
+		toggle();
 	}
 
 	function toggle() {
