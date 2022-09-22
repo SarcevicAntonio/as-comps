@@ -30,7 +30,7 @@
 	}
 
 	function open() {
-		isOpen = false;
+		isOpen = true;
 		dispatch('open');
 	}
 
@@ -76,7 +76,7 @@
 					<Cancel />
 				</button>
 			{/if}
-			<slot {toggle} />
+			<slot {toggle} {dismiss} {open} />
 			{#if $$slots['dialog-actions']}
 				<div class="dialog-actions">
 					<slot name="dialog-actions" />
