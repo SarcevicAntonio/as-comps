@@ -6,7 +6,7 @@
 	import Cancel from './Cancel.svelte';
 	const dispatch = createEventDispatcher();
 
-	export let open = false;
+	export let isOpen = false;
 	export let includedTrigger = true;
 	export let mandatory = false;
 	export let triggerClass = '';
@@ -25,47 +25,50 @@
 
 	function dismiss() {
 		if (mandatory) return;
+		isOpen = false;
 		dispatch('dismiss');
-		toggle();
+	}
+
+	function open() {
+		isOpen = false;
+		dispatch('open');
 	}
 
 	function toggle() {
-		open = !open;
+		isOpen = !isOpen;
 		if (buttonRef) buttonRef.focus();
 	}
 
 	export let buttonRef: HTMLElement = undefined;
 
 	onDestroy(() => {
-		open = false;
+		isOpen = false;
 	});
 </script>
 
 <svelte:window
 	on:keydown={(evt) => {
-		if (open && evt.key === 'Escape') dismiss();
+		if (isOpen && evt.key === 'Escape') dismiss();
 	}}
 />
 
 {#if includedTrigger}
-	<button
-		bind:this={buttonRef}
-		class={triggerClass}
-		on:click={() => {
-			open = !open;
-		}}
-	>
+	<button bind:this={buttonRef} class={triggerClass} on:click={open}>
 		<slot name="trigger-label">{triggerLabel}</slot>
 	</button>
 {/if}
 
-{#if open}
+{#if isOpen}
 	<dialog open use:appendToBody use:focusTrap class="container">
 		<section
 			class="dialog"
 			aria-labelledby="dialog-content"
 			in:dialogIn={dialogInOptions}
 			out:dialogOut={dialogOutOptions}
+			on:introstart
+			on:outrostart
+			on:introend
+			on:outroend
 			{...$$restProps}
 		>
 			{#if !(mandatory || noCloseButton)}
