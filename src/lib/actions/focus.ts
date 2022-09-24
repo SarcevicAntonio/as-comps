@@ -10,7 +10,7 @@ function getFocusable(element: HTMLElement) {
 
 export function focusTrap(element: HTMLElement): actionReturn {
 	let focusable = getFocusable(element);
-	focusable[0].focus();
+	focusable[0]?.focus();
 
 	function handleKeydown(event: KeyboardEvent) {
 		focusable = getFocusable(element);
