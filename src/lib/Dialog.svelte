@@ -9,7 +9,7 @@
 	export let isOpen = false;
 	export let includedTrigger = true;
 	export let mandatory = false;
-	export let triggerClass = '';
+	export let triggerProps = { class: '' };
 	export let triggerLabel = 'Open Dialog';
 	export let noCloseButton = false;
 
@@ -53,7 +53,7 @@
 />
 
 {#if includedTrigger}
-	<button bind:this={buttonRef} class={triggerClass} on:click={open}>
+	<button bind:this={buttonRef} {...triggerProps} on:click={open}>
 		<slot name="trigger-label">{triggerLabel}</slot>
 	</button>
 {/if}

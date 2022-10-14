@@ -27,7 +27,7 @@
 			{mandatory}
 			{noCloseButton}
 			triggerLabel={dirTriggerLabel}
-			triggerClass="btn"
+			triggerProps={{ class: 'btn' }}
 		>
 			<h2 data-test="dialog-content">Are you sure you want to delete the entry?</h2>
 			<p>This action can not be reversed.</p>
@@ -91,7 +91,7 @@
 <section class="toybox">
 	<div class="demo">
 		<Dialog
-			triggerClass="btn"
+			triggerProps={{ class: 'btn' }}
 			triggerLabel="Dialog as Side Pane"
 			dialogIn={fly}
 			dialogInOptions={{ x: 500 }}
@@ -114,7 +114,7 @@
 	</div>
 	<Codesample
 		code={`<Dialog
-	triggerClass="btn"
+	triggerProps={{ class: 'btn' }}
 	triggerLabel="Dialog as Side Pane"
 	dialogIn={fly}
 	dialogInOptions={{ x: 500 }}
