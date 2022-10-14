@@ -9,7 +9,7 @@
 	export let isOpen = false;
 	export let includedTrigger = true;
 	export let mandatory = false;
-	export let triggerProps = { class: '' };
+	export let triggerProps: any = { class: '' };
 	export let triggerLabel = 'Open Dialog';
 	export let noCloseButton = false;
 
