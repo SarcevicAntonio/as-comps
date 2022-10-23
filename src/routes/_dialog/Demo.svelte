@@ -152,16 +152,50 @@
 	/>
 </section>
 
-<h4>Destroy</h4>
+<h3>Self-Destroying Dialog</h3>
 
-{#if showDestroyDialogButton}
-	<Dialog>
-		<button
-			on:click={() => {
-				showDestroyDialogButton = false;
-			}}
-		>
-			destroy dialog
-		</button>
-	</Dialog>
-{/if}
+<p>
+	Sometimes, a Dialog causes its own destruction. Example is a list of items with a delete dialog
+	for each button. After the user confirms the deletion, the item will no longer be rendered. In
+	this case, you have to be careful to not call <code>toggle()</code>
+	before the destroying action takes place, or else you might get some errors in console like:
+
+	<code>Cannot read properties of null (reading 'removeChild')</code>
+</p>
+
+<section class="toybox">
+	<div class="demo">
+		{#if showDestroyDialogButton}
+			<div>
+				<Dialog let:toggle>
+					<button
+						on:click={() => {
+							// do not call toggle() here!!!
+							showDestroyDialogButton = false;
+						}}
+					>
+						Delete
+					</button>
+				</Dialog>
+			</div>
+		{:else}
+			<button on:click={() => (showDestroyDialogButton = true)}>Reset</button>
+		{/if}
+	</div>
+	<Codesample
+		code={`{#if showDestroyDialogButton}
+	<div>
+		<Dialog let:toggle>
+			<button
+				on:click="{() => {
+					// do not call toggle() here!!!
+					showDestroyDialogButton = false;
+				}}"
+			>
+				Delete
+			</button>
+		</Dialog>
+	</div>
+{/if}`}
+	/>
+</section>
