@@ -11,7 +11,6 @@ html:focus-within {
 }
 
 html {
-	padding: 0 1em;
 	background: var(--bgg);
 	background: linear-gradient(120deg, var(--bg) 0%, var(--bgg) 100%);
 	color: var(--fg);
@@ -19,12 +18,6 @@ html {
 		Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	font-size: 1.1em;
 	line-height: 1.6;
-}
-
-body {
-	max-width: 75ch;
-	margin: auto;
-	padding-top: 1px; /* hack: fix collapsing margin */
 }
 
 :root {
@@ -40,8 +33,8 @@ body {
 
 .dark-theme {
 	--b: hsl(0deg 0% 0%);
-	--bg: hsl(281deg 100% 3%);
-	--bgg: hsl(161deg 100% 3%);
+	--bg: hsl(270, 11%, 14%);
+	--bgg: hsl(160, 16%, 11%);
 	--accent: hsl(281deg 50% 58%);
 	--hi: hsl(161deg 50% 58%);
 	--fg: hsl(0deg 0% 100%);
