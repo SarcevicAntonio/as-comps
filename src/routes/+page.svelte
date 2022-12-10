@@ -1,11 +1,11 @@
 <script>
-	import Docs from './Docs.md';
+	import Intro from './intro.md';
 	import comps from './_comps';
 </script>
 
 <article>
 	<h1 tabindex="-1" id="intro">🧱 AS Comps</h1>
-	<Docs />
+	<Intro />
 </article>
 
 {#each comps as item}

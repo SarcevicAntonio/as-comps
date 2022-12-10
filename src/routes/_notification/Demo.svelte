@@ -6,7 +6,7 @@
 	import Codesample from '$internal/Codesample.svelte';
 	import type { NotificationPosition } from '$lib';
 	import { notification } from '$lib';
-	import { Writable, writable } from 'svelte/store';
+	import { type Writable, writable } from 'svelte/store';
 	let msg = 'a notification';
 	let type: 'info' | 'warn' = undefined;
 	let removeAfter = undefined;

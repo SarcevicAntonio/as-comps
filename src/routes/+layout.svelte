@@ -90,7 +90,7 @@
 
 	<footer>
 		Made with ❤️ by
-		<a href="https://www.sarcevic.dev/" target="_blank">Antonio Sarcevic</a>
+		<a href="https://www.sarcevic.dev/" target="_blank" rel="noreferrer">Antonio Sarcevic</a>
 	</footer>
 </div>
 
