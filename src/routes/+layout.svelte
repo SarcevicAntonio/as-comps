@@ -38,7 +38,7 @@
 			class="index-menu"
 		>
 			<li>
-				<a href="#intro">🧱 Intro</a>
+				<a href="#intro">🧱 As Comps</a>
 			</li>
 			{#each comps as item}
 				<li>
@@ -72,7 +72,7 @@
 			}}
 		>
 			<li>
-				<a href="#intro">🧱 Intro</a>
+				<a href="#intro">🧱 As Comps</a>
 			</li>
 			{#each comps as item}
 				<li>
@@ -184,5 +184,9 @@
 
 	aside a {
 		color: var(--fg);
+	}
+
+	a[href='#intro'] {
+		font-size: 1.5em;
 	}
 </style>
