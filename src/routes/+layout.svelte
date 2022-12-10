@@ -173,7 +173,7 @@
 			margin-left: var(--sidebar-width);
 			margin-right: 4em;
 		}
-		main {
+		.main-container > * {
 			margin-left: 8em;
 		}
 	}
