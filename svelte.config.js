@@ -16,9 +16,13 @@ const config = {
 		}),
 		mdsvex(mdsvexConfig),
 	],
-
 	kit: {
-		adapter: staticAdapter()
+		adapter: staticAdapter(),
+	},
+	vitePlugin: {
+		experimental: {
+			inspector: { holdMode: true },
+		},
 	},
 };
 

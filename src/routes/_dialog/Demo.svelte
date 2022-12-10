@@ -142,13 +142,13 @@
 <section class="toybox">
 	<div class="demo">
 		<button bind:this={buttonRef} on:click={() => (dialogOpen = !dialogOpen)}>toggle dialog</button>
-		<Dialog includedTrigger={false} {buttonRef} bind:open={dialogOpen}>
+		<Dialog includedTrigger={false} {buttonRef} bind:isOpen={dialogOpen}>
 			<h1>Hello Dialog</h1>
 		</Dialog>
 	</div>
 	<Codesample
 		code={`<button bind:this={buttonRef} on:click="{() => (dialogOpen = !dialogOpen)}">toggle dialog</button>
-<Dialog includedTrigger={false} {buttonRef} bind:open={dialogOpen}>Hello Dialog</Dialog>`}
+<Dialog includedTrigger={false} {buttonRef} bind:isOpen={dialogOpen}>Hello Dialog</Dialog>`}
 	/>
 </section>
 

@@ -2,7 +2,7 @@ Simple and customizable building blocks for Svelte Apps.
 
 _work in progress. consider this as alpha software._
 
-```sh
+```bash
 # Install the package using npm
 npm i -D as-comps
 

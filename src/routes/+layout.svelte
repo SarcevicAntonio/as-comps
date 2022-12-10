@@ -4,7 +4,7 @@
 	import { onMount, tick } from 'svelte';
 	import { fly, slide } from 'svelte/transition';
 	import '../global.css';
-	import '../theme.css';
+	// import '../theme.css';
 	import comps from './_comps';
 	import { notificationPosition } from './_notification/Demo.svelte';
 
