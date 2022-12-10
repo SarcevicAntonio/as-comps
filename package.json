@@ -25,7 +25,8 @@
 		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
 		"lint": "eslint --ignore-path .gitignore .",
 		"package": "svelte-kit package",
-		"preview": "svelte-kit preview"
+		"preview": "svelte-kit preview",
+		"pub-patch": "npm version patch --force && npm publish"
 	},
 	"dependencies": {
 		"fuse.js": "^6.5.3",
