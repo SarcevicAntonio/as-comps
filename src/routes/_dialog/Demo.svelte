@@ -29,10 +29,14 @@
 			triggerLabel={dirTriggerLabel}
 			triggerProps={{ class: 'btn' }}
 		>
-			<h2 data-test="dialog-content">Are you sure you want to delete the entry?</h2>
+			<h2 data-test="dialog-content">
+				Are you sure you want to delete the entry?
+			</h2>
 			<p>This action can not be reversed.</p>
 			<svelte:fragment slot="dialog-actions">
-				<button class="btn" on:click={toggle} data-test="dialog-close">No</button>
+				<button class="btn" on:click={toggle} data-test="dialog-close">
+					No
+				</button>
 				<button
 					class="btn"
 					on:click={() => {
@@ -55,14 +59,21 @@
 		</label>
 		<label>
 			<span>noCloseButton</span>
-			<select bind:value={noCloseButton} data-test="dialog-noCloseButton-select">
+			<select
+				bind:value={noCloseButton}
+				data-test="dialog-noCloseButton-select"
+			>
 				<option value={true}>true</option>
 				<option value={false}>false</option>
 			</select>
 		</label>
 		<label>
 			<span>Trigger Label</span>
-			<input type="text" bind:value={triggerLabel} data-test="dialog-trigger-label" />
+			<input
+				type="text"
+				bind:value={triggerLabel}
+				data-test="dialog-trigger-label"
+			/>
 		</label>
 	</div>
 	<Codesample
@@ -106,9 +117,9 @@
 		>
 			<h1>This is a side pane</h1>
 			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus rem non sunt! Id
-				necessitatibus veritatis debitis est tempora iure esse. Nisi, dicta alias nobis velit libero
-				deleniti corporis nihil? Eum.
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus rem non
+				sunt! Id necessitatibus veritatis debitis est tempora iure esse. Nisi,
+				dicta alias nobis velit libero deleniti corporis nihil? Eum.
 			</p>
 		</Dialog>
 	</div>
@@ -141,14 +152,26 @@
 
 <section class="toybox">
 	<div class="demo">
-		<button bind:this={buttonRef} on:click={() => (dialogOpen = !dialogOpen)}>toggle dialog</button>
+		<button
+			class="btn"
+			bind:this={buttonRef}
+			on:click={() => (dialogOpen = !dialogOpen)}
+		>
+			toggle dialog
+		</button>
 		<Dialog includedTrigger={false} {buttonRef} bind:isOpen={dialogOpen}>
 			<h1>Hello Dialog</h1>
 		</Dialog>
 	</div>
 	<Codesample
-		code={`<button bind:this={buttonRef} on:click="{() => (dialogOpen = !dialogOpen)}">toggle dialog</button>
-<Dialog includedTrigger={false} {buttonRef} bind:isOpen={dialogOpen}>Hello Dialog</Dialog>`}
+		code={`<button
+	class="btn"
+	bind:this={buttonRef}
+	on:click="{() => (dialogOpen = !dialogOpen)}"
+>
+<Dialog includedTrigger={false} {buttonRef} bind:isOpen={dialogOpen}>
+	<h1>Hello Dialog</h1>
+</Dialog>`}
 	/>
 </section>
 
@@ -158,8 +181,9 @@
 	<div class="demo">
 		{#if showDestroyDialogButton}
 			<div>
-				<Dialog let:toggle>
+				<Dialog let:toggle triggerProps={{ class: 'btn' }}>
 					<button
+						class="btn"
 						on:click={() => {
 							toggle();
 							showDestroyDialogButton = false;
@@ -176,8 +200,9 @@
 	<Codesample
 		code={`{#if showDestroyDialogButton}
 	<div>
-		<Dialog let:toggle>
+		<Dialog let:toggle triggerProps="{{ class: 'btn' }}">
 			<button
+				class="btn"
 				on:click="{() => {
 					toggle();
 					showDestroyDialogButton = false;

@@ -1,5 +1,6 @@
 <script context="module" lang="ts">
-	export const notificationPosition: Writable<NotificationPosition> = writable('top-right');
+	export const notificationPosition: Writable<NotificationPosition> =
+		writable('top-right');
 </script>
 
 <script lang="ts">
