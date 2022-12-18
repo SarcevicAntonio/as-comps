@@ -24,7 +24,7 @@
 		"dev": "vite dev",
 		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
 		"lint": "eslint --ignore-path .gitignore .",
-		"package": "svelte-kit package",
+		"package": "svelte-package",
 		"preview": "vite preview",
 		"pub-patch": "npm version patch --force && npm publish"
 	},
@@ -34,6 +34,7 @@
 	"devDependencies": {
 		"@sveltejs/adapter-static": "next",
 		"@sveltejs/kit": "next",
+		"@sveltejs/package": "1.0.0-next.6",
 		"@types/uuid": "^8.3.4",
 		"@typescript-eslint/eslint-plugin": "^4.33.0",
 		"@typescript-eslint/parser": "^4.33.0",
