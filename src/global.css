@@ -44,6 +44,7 @@ html {
 
 article,
 footer {
+	padding-top: 2.5em;
 	margin: 20em 0;
 }
 
@@ -51,6 +52,7 @@ article:first-child {
 	margin-top: 0;
 	padding-top: 5em;
 }
+
 
 input,
 select {
