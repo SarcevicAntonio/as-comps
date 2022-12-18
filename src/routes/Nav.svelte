@@ -3,7 +3,7 @@
 	import { fly, slide } from 'svelte/transition';
 	import { onMount } from 'svelte';
 	import { tick } from 'svelte';
-	import comps, { current_article } from './comps';
+	import comps, { intersecting_articles } from './comps';
 
 	export let indexVisible = true;
 
@@ -26,7 +26,7 @@
 	// todo: use css for floating index-menu instead if that somehow works
 </script>
 
-<nav class="floating-index-menu">
+<nav class="floating-index-menu dark-theme">
 	{#if indexVisible}
 		<ul
 			transition:condTrans={{
@@ -34,11 +34,11 @@
 			}}
 			class="index-menu"
 		>
-			<li class:active={$current_article['intro']}>
+			<li class:active={$intersecting_articles['intro']}>
 				<a href="#intro">🧱 As Comps</a>
 			</li>
 			{#each comps as item}
-				<li class:active={$current_article[item.id]}>
+				<li class:active={$intersecting_articles[item.id]}>
 					<a href="#{item.id}">
 						{item.title}
 					</a>
@@ -68,11 +68,11 @@
 				trans: slide,
 			}}
 		>
-			<li class:active={$current_article['intro']}>
+			<li class:active={$intersecting_articles['intro']}>
 				<a href="#intro">🧱 As Comps</a>
 			</li>
 			{#each comps as item}
-				<li class:active={$current_article[item.id]}>
+				<li class:active={$intersecting_articles[item.id]}>
 					<a href="#{item.id}">
 						{item.title}
 					</a>
@@ -84,8 +84,9 @@
 
 <style>
 	.index-menu {
-		background-color: white;
-		border: 1px solid lightgray;
+		background-color: var(--bg);
+		border: 1px solid var(--hi);
+		color: var(--fg);
 		border-radius: 0.3em;
 		box-shadow: var(--card-shadow);
 		position: fixed;
@@ -107,11 +108,6 @@
 		text-decoration: none;
 		font-size: 1.2em;
 		font-weight: 600;
-	}
-
-	ul li a:hover,
-	ul li a:focus {
-		text-decoration: underline;
 	}
 
 	button.index-menu {
@@ -165,15 +161,35 @@
 		padding-inline: 1em;
 	}
 
-	aside a {
-		color: var(--fg);
-	}
-
 	a[href='#intro'] {
 		font-size: 1.5em;
 	}
 
-	li.active {
+	a {
+		color: var(--fg);
+		position: relative;
+	}
+
+	a:hover {
+		text-decoration: none;
+	}
+
+	a::before {
+		content: '';
+		position: absolute;
+		top: calc(100% - 0.125em);
+		bottom: 0;
+		left: -0.25em;
+		right: calc(100% + 0.25em);
+		border-radius: 999999px;
+		background-color: var(--fg);
+		transition: right 0.25s ease-in-out;
+	}
+
+	a:focus::before,
+	a:hover::before,
+	li.active a::before {
+		right: -0.25em;
 		text-decoration: underline;
 	}
 </style>

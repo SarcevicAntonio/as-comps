@@ -4,7 +4,7 @@ import DialogDocs from './_dialog/Docs.md';
 import NotificationDemo from './_notification/Demo.svelte';
 import NotificationDocs from './_notification/Docs.md';
 
-export const current_article = writable({});
+export const intersecting_articles = writable({});
 
 const comps = [
 	{

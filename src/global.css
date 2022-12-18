@@ -15,8 +15,9 @@ html {
 	background: var(--bgg);
 	background: linear-gradient(120deg, var(--bg) 0%, var(--bgg) 100%);
 	color: var(--fg);
-	font-family: 'Atkinson Hyperlegible', Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-		Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-family: 'Atkinson Hyperlegible', Roboto, -apple-system,
+		BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans',
+		'Helvetica Neue', sans-serif;
 	font-size: 1.1em;
 	line-height: 1.6;
 }
@@ -43,12 +44,12 @@ html {
 
 article,
 footer {
-	margin: 15em 0;
+	margin: 20em 0;
 }
 
-article > h1,
-article > h2 {
-	padding-top: 2.5em;
+article:first-child {
+	margin-top: 0;
+	padding-top: 5em;
 }
 
 input,
@@ -107,7 +108,12 @@ kbd {
 
 .btn {
 	--background: var(--b);
+	color: var(--fg);
 	padding: 0.5em 1em;
+}
+
+.dark-theme .btn {
+	--background: var(--bg);
 }
 
 .copy-btn {

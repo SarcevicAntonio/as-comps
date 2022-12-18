@@ -1,15 +1,15 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import Intro from './intro.md';
-	import comps, { current_article } from './comps';
+	import comps, { intersecting_articles } from './comps';
 
 	const handle_intersection: IntersectionObserverCallback = (entries) => {
 		entries.forEach((entry) => {
 			const id = entry.target.getAttribute('id');
 			if (entry.isIntersecting) {
-				$current_article[id] = true;
+				$intersecting_articles[id] = true;
 			} else {
-				$current_article[id] = false;
+				$intersecting_articles[id] = false;
 			}
 		});
 	};
