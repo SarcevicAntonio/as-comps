@@ -1,7 +1,10 @@
+import { writable } from 'svelte/store';
 import DialogDemo from './_dialog/Demo.svelte';
 import DialogDocs from './_dialog/Docs.md';
 import NotificationDemo from './_notification/Demo.svelte';
 import NotificationDocs from './_notification/Docs.md';
+
+export const current_article = writable({});
 
 const comps = [
 	{
