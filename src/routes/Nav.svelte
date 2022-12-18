@@ -94,6 +94,7 @@
 		left: 0;
 		margin: 1rem;
 		padding: 1rem;
+		z-index: 1;
 	}
 
 	ul {
@@ -105,7 +106,6 @@
 	}
 
 	ul li a {
-		text-decoration: none;
 		font-size: 1.2em;
 		font-weight: 600;
 	}
@@ -161,35 +161,11 @@
 		padding-inline: 1em;
 	}
 
-	a[href='#intro'] {
-		font-size: 1.5em;
-	}
-
 	a {
 		color: var(--fg);
-		position: relative;
 	}
 
-	a:hover {
-		text-decoration: none;
-	}
-
-	a::before {
-		content: '';
-		position: absolute;
-		top: calc(100% - 0.125em);
-		bottom: 0;
-		left: -0.25em;
-		right: calc(100% + 0.25em);
-		border-radius: 999999px;
-		background-color: var(--fg);
-		transition: right 0.25s ease-in-out;
-	}
-
-	a:focus::before,
-	a:hover::before,
-	li.active a::before {
-		right: -0.25em;
-		text-decoration: underline;
+	a[href='#intro'] {
+		font-size: 1.5em;
 	}
 </style>

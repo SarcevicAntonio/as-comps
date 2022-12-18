@@ -42,6 +42,32 @@ html {
 	--fg: hsl(0deg 0% 100%);
 }
 
+a {
+	color: var(--accent);
+	position: relative;
+	text-decoration: none;
+	--underline-overflow: 0.125em;
+}
+
+a::before {
+	content: '';
+	position: absolute;
+	top: calc(100% - 0.125em);
+	bottom: 0;
+	left: calc(var(--underline-overflow) * -1);
+	right: calc(100% + var(--underline-overflow));
+	border-radius: 999999px;
+	background-color: currentColor;
+	transition: right 0.25s ease-in-out;
+}
+
+a:focus::before,
+a:hover::before,
+li.active a::before {
+	right: calc(var(--underline-overflow) * -1);
+	text-decoration: underline;
+}
+
 article,
 footer {
 	padding-top: 2.5em;
@@ -52,7 +78,6 @@ article:first-child {
 	margin-top: 0;
 	padding-top: 5em;
 }
-
 
 input,
 select {

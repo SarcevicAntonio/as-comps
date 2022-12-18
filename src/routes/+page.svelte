@@ -26,7 +26,9 @@
 </script>
 
 <article tabindex="-1" id="intro" bind:this={articles[0]}>
-	<h1>🧱 AS Comps</h1>
+	<h1>
+		🧱 AS Comps <a class="copy" href="#intro">#</a>
+	</h1>
 	<Intro />
 </article>
 
@@ -34,6 +36,7 @@
 	<article tabindex="-1" id={item.id} bind:this={articles[i + 1]}>
 		<h2>
 			{item.title}
+			<a class="copy" href="#{item.id}">#</a>
 		</h2>
 		{#if item.comps}
 			{#each item.comps as comp}
@@ -42,3 +45,17 @@
 		{/if}
 	</article>
 {/each}
+
+<style>
+	.copy {
+		visibility: hidden;
+		opacity: 0%;
+		transition: opacity 0.25s ease-in-out;
+	}
+
+	h1:hover .copy,
+	h2:hover .copy {
+		visibility: visible;
+		opacity: 100%;
+	}
+</style>
