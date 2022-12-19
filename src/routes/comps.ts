@@ -1,17 +1,12 @@
+import { writable } from 'svelte/store';
 import DialogDemo from './_dialog/Demo.svelte';
 import DialogDocs from './_dialog/Docs.md';
 import NotificationDemo from './_notification/Demo.svelte';
 import NotificationDocs from './_notification/Docs.md';
-import TabDemo from './_tabgroup/Demo.svelte';
-import TabDocs from './_tabgroup/Docs.md';
-import InputDemo from './_input/Demo.svelte';
+
+export const intersecting_articles = writable({});
 
 const comps = [
-	{
-		id: 'input',
-		title: '🔡 Input',
-		comps: [InputDemo],
-	},
 	{
 		id: 'dialog',
 		title: '🔲 Dialog',
@@ -22,11 +17,16 @@ const comps = [
 		title: '💬 Notification',
 		comps: [NotificationDemo, NotificationDocs],
 	},
-	{
-		id: 'tabs',
-		title: '📑 TabGroup + Tab',
-		comps: [TabDemo, TabDocs],
-	},
+	// {
+	// 	id: 'tabs',
+	// 	title: '📑 TabGroup + Tab (pre-alpha)',
+	// 	comps: [TabDemo, TabDocs],
+	// },
+	// {
+	// 	id: 'input',
+	// 	title: '🔡 Input (pre-alpha)',
+	// 	comps: [InputDemo],
+	// },
 ];
 
 export default comps;

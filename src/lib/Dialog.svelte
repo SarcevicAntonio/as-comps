@@ -85,6 +85,9 @@
 		</section>
 		<div
 			on:click={dismiss}
+			on:keydown={() => {}}
+			on:keyup={() => {}}
+			on:keypress={() => {}}
 			class="backdrop"
 			in:backdropIn={backdropInOptions}
 			out:backdropOut={backdropOutOptions}
@@ -156,5 +159,9 @@
 
 	dialog {
 		all: unset;
+	}
+
+	:global(html:has(dialog[open])) {
+		overflow: hidden;
 	}
 </style>

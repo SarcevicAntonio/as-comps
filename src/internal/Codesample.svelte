@@ -17,11 +17,7 @@
 	<button class="copy-btn" on:click={copyCode}>copy</button>
 </div>
 
-<pre class="language-{lang}">
-	<code class="language-{lang}">
-		{@html codeHtml}
-	</code>
-</pre>
+<pre class="language-{lang}"><code class="language-{lang}">{@html codeHtml}</code></pre>
 
 <style>
 	div {
