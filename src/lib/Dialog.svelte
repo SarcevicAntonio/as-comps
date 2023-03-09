@@ -12,6 +12,7 @@
 	export let triggerProps: any = { class: '' };
 	export let triggerLabel = 'Open Dialog';
 	export let noCloseButton = false;
+    export let autofocus = true;
 
 	export let transitionOptions = {};
 	export let backdropIn = fade;
@@ -59,7 +60,7 @@
 {/if}
 
 {#if isOpen}
-	<dialog open use:appendToBody use:focusTrap class="container">
+	<dialog open use:appendToBody use:focusTrap={{autofocus}} class="container">
 		<section
 			class="dialog"
 			aria-labelledby="dialog-content"

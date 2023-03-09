@@ -8,9 +8,11 @@ function getFocusable(element: HTMLElement) {
 	);
 }
 
-export function focusTrap(element: HTMLElement): actionReturn {
-	let focusable = getFocusable(element);
-	focusable[0]?.focus();
+export function focusTrap(element: HTMLElement, { autofocus = true }): actionReturn {
+	if (autofocus) {
+		let focusable = getFocusable(element);
+		focusable[0]?.focus();
+	}
 
 	function handleKeydown(event: KeyboardEvent) {
 		focusable = getFocusable(element);
@@ -36,13 +38,19 @@ export function focusTrap(element: HTMLElement): actionReturn {
 		destroy() {
 			element.removeEventListener('keydown', handleKeydown);
 		},
+		update({ autofocus }) {
+			if (autofocus) {
+				let focusable = getFocusable(element);
+				focusable[0]?.focus();
+			}
+		}
 	};
 }
 
 export function arrowKeyFocus(
 	element: HTMLElement,
 	orientation = 'horizontal'
-): { destroy(): void } {
+): { destroy(): void; } {
 	let moveKeys = ['ArrowLeft', 'ArrowRight'];
 	if (orientation === 'vertical') moveKeys = ['ArrowDown', 'ArrowUp'];
 
