@@ -102,14 +102,14 @@
 		position: absolute;
 	}
 	.backdrop {
-		z-index: -1;
+		z-index: var(--as-dialog-backdrop-z-index, -1);
 		position: fixed;
 		inset: 0;
 		background: var(--as-dialog-backdrop-background, hsl(0, 0%, 0%));
 		opacity: var(--as-dialog-backdrop-opacity, 0.8);
 	}
 	.dialog {
-		z-index: 1;
+		z-index: var(--as-dialog-z-index, 1);
 		position: fixed;
 		top: var(--as-dialog-top, 50%);
 		right: var(--as-dialog-right, auto);
@@ -154,7 +154,7 @@
 		gap: var(--as-dialog--actions-gap, 1em);
 	}
 
-	:global(.dialog-actions > button) {
+	.dialog-actions > :global(button) {
 		flex-grow: var(--as-dialog--actions--child-button-flex-grow, 1);
 	}
 
