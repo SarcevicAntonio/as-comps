@@ -100,6 +100,7 @@
 	.container {
 		isolation: isolate;
 		position: absolute;
+		z-index: var(--as-dialog-container-z-index, 1);
 	}
 	.backdrop {
 		z-index: var(--as-dialog-backdrop-z-index, -1);
