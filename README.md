@@ -2,7 +2,7 @@
 
 Simple and customizable building blocks for Svelte
 
-_work in progress_
+_i would not install this if i were you_
 
 ```
 # Install the package using your favorite package manager
